@@ -810,17 +810,8 @@ schemas = {
 
 ########## User Role Assignments ############
 user_role_assignments = {
-  "CHAITANYA.CHHIBBA@MONEYMART.CA" = [
-    "MFSG_OPENFLOW_ADMIN",
-    "MFSG_OPENFLOW_DEVELOPER"
-  ]
 
-  "GANESH-KUMAR.SUBRAMANIAM@MONEYMART.CA" = [
-    "MFSG_OPENFLOW_ADMIN",
-    "MFSG_OPENFLOW_DEVELOPER"
-  ]
-
-  "SARABJEET.SINGH@MONEYMART.CA" = [
+  "ganesh.subramaniam@brainridgeconsulting.com" = [
     "MFSG_OPENFLOW_ADMIN",
     "MFSG_OPENFLOW_DEVELOPER"
   ]
