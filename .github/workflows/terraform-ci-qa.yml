@@ -41,6 +41,9 @@ jobs:
         run: |
           echo "${{ secrets.SNOWFLAKE_QA_PRIVATE_KEY }}" > rsa_key.p8
           chmod 600 rsa_key.p8
+          for dir in ../../modules/account_role ../../modules/database ../../modules/schema ../../modules/warehouse; do
+            cp rsa_key.p8 "$dir/rsa_key.p8"
+          done
 
       - name: Terraform Format Check
         id: fmt
@@ -108,6 +111,8 @@ jobs:
           echo "  Plan:     ${{ steps.plan.outcome }}"
           exit 1
 
-      - name: Cleanup key file
+      - name: Cleanup key files
         if: always()
-        run: rm -f rsa_key.p8
+        run: |
+          rm -f rsa_key.p8
+          rm -f ../../modules/*/rsa_key.p8
