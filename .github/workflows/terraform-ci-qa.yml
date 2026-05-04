@@ -1,15 +1,15 @@
-name: "Terraform CI — DEV"
+name: "Terraform CI — QA"
 
 on:
   pull_request:
     branches: [Dev]
     paths:
-      - "environments/dev/**"
+      - "environments/qa/**"
       - "modules/**"
   push:
     branches: [Dev]
     paths:
-      - "environments/dev/**"
+      - "environments/qa/**"
       - "modules/**"
 
 permissions:
@@ -18,56 +18,48 @@ permissions:
 
 env:
   TF_VERSION: "1.5.7"
-  WORKING_DIR: environments/dev
+  WORKING_DIR: environments/qa
 
 jobs:
   terraform-checks:
-    name: "DEV — Format, Validate & Plan"
+    name: "QA — Format, Validate & Plan"
     runs-on: ubuntu-latest
     defaults:
       run:
         working-directory: ${{ env.WORKING_DIR }}
 
     steps:
-      # ── Checkout ──
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      # ── Setup Terraform ──
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v3
         with:
           terraform_version: ${{ env.TF_VERSION }}
 
-      # ── Write Snowflake private key ──
       - name: Write Snowflake RSA key
         run: |
-          echo "${{ secrets.SNOWFLAKE_PRIVATE_KEY }}" > rsa_key.p8
+          echo "${{ secrets.SNOWFLAKE_QA_PRIVATE_KEY }}" > rsa_key.p8
           chmod 600 rsa_key.p8
 
-      # ── Format Check ──
       - name: Terraform Format Check
         id: fmt
         run: terraform fmt -check -recursive
         continue-on-error: true
 
-      # ── Init ──
       - name: Terraform Init
         id: init
         run: terraform init
 
-      # ── Validate ──
       - name: Terraform Validate
         id: validate
         run: terraform validate -no-color
 
-      # ── Plan ──
       - name: Terraform Plan
         id: plan
         run: terraform plan -no-color -input=false
         continue-on-error: true
 
-      # ── Post PR Comment ──
       - name: Post Plan to PR
         if: github.event_name == 'pull_request'
         uses: actions/github-script@v7
@@ -82,7 +74,7 @@ jobs:
 
             const icon = (s) => s === 'success' ? '✅' : '❌';
 
-            const body = `### Terraform CI — DEV
+            const body = `### Terraform CI — QA Environment
             | Check | Status |
             |-------|--------|
             | Format | ${icon(fmtOutcome)} \`${fmtOutcome}\` |
@@ -107,7 +99,6 @@ jobs:
               body: body
             });
 
-      # ── Fail if any check failed ──
       - name: Check results
         if: steps.fmt.outcome == 'failure' || steps.validate.outcome == 'failure' || steps.plan.outcome == 'failure'
         run: |
@@ -117,7 +108,6 @@ jobs:
           echo "  Plan:     ${{ steps.plan.outcome }}"
           exit 1
 
-      # ── Cleanup ──
       - name: Cleanup key file
         if: always()
         run: rm -f rsa_key.p8
