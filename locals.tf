@@ -25,7 +25,7 @@ locals {
       "${k}_ro" => {
         name             = d.ro_role_name
         comment          = "Read-only role for database ${d.database}"
-        parent_role_name = d.layer_name == "BRONZE" ? "MFSG_OPENFLOW_ADMIN" : var.ro_parent_role_name
+        parent_role_name = "SYSADMIN"
       }
     },
     {
@@ -33,7 +33,7 @@ locals {
       "${k}_rw" => {
         name             = d.rw_role_name
         comment          = "Read-write role for database ${d.database}"
-        parent_role_name = d.layer_name == "BRONZE" ? "MFSG_OPENFLOW_DEVELOPER" : var.rw_parent_role_name
+        parent_role_name = "SYSADMIN"
       }
     }
   )

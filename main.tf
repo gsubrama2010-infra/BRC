@@ -21,5 +21,6 @@ module "account_roles" {
 
   account_roles         = local.all_account_roles
   role_privilege_grants = local.all_role_privilege_grants
+  role_to_role_grants   = var.role_to_role_grants
   user_role_assignments = var.user_role_assignments
 }

@@ -15,6 +15,18 @@ resource "snowflake_grant_account_role" "role_to_parent" {
   parent_role_name = each.value.parent_role_name
 }
 
+resource "snowflake_grant_account_role" "role_to_role" {
+  for_each = var.role_to_role_grants
+
+  role_name        = each.value.role_name
+  parent_role_name = each.value.parent_role_name
+
+  depends_on = [
+    snowflake_account_role.this,
+    snowflake_grant_account_role.role_to_parent
+  ]
+}
+
 resource "snowflake_grant_account_role" "role_to_user" {
   for_each = {
     for grant in local.user_role_grants :
