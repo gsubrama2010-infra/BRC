@@ -1,0 +1,17 @@
+# Terraform
+*.tfstate
+*.tfstate.backup
+*.tfstate.*.backup
+tfplan*
+.terraform/
+.terraform.lock.hcl
+crash.log
+
+# Secrets — NEVER commit
+rsa_key.p8
+*.pem
+*.key
+
+# OS
+.DS_Store
+Thumbs.db

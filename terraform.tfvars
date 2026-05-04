@@ -68,171 +68,311 @@ databases = {
     comment      = "This database is being used by Dev env for Gold"
     is_transient = false
   }
+
+  moneymart_db_admin = {
+    name         = "ADMIN_INTEGRATION_DB"
+    comment      = "Admin database for network rules, secrets, and integration objects"
+    is_transient = false
+  }
 }
 
 custom_account_roles = {
-  moneymart_account_role_mfsg_datascience = {
-    name             = "MFSG_DATASCI_ROLE"
+
+  ########## Team Functional Roles (RW) ##########
+  account_role_mfsg_datasci_rw = {
+    name             = "MFSG_DATASCI_ROLE_RW"
     parent_role_name = "SYSADMIN"
-    comment          = "Role for MFSG Data Science dev jobs"
+    comment          = "RW functional role for Data Science team"
+  }
+  account_role_mfsg_creditrisk_rw = {
+    name             = "MFSG_CREDITRISK_ROLE_RW"
+    parent_role_name = "SYSADMIN"
+    comment          = "RW functional role for Credit Risk team"
+  }
+  account_role_mfsg_fraud_rw = {
+    name             = "MFSG_FRAUD_ROLE_RW"
+    parent_role_name = "SYSADMIN"
+    comment          = "RW functional role for Fraud team"
+  }
+  account_role_mfsg_analytics_rw = {
+    name             = "MFSG_ANALYTICS_ROLE_RW"
+    parent_role_name = "SYSADMIN"
+    comment          = "RW functional role for Analytics team"
+  }
+  account_role_mfsg_collection_rw = {
+    name             = "MFSG_COLLECTION_ROLE_RW"
+    parent_role_name = "SYSADMIN"
+    comment          = "RW functional role for Collection team"
+  }
+  account_role_mfsg_allowfor_rw = {
+    name             = "MFSG_ALLOWFOR_ROLE_RW"
+    parent_role_name = "SYSADMIN"
+    comment          = "RW functional role for Allowance & Forecasting team"
+  }
+  account_role_mfsg_it_core_rw = {
+    name             = "MFSG_IT_CORE_ROLE_RW"
+    parent_role_name = "SYSADMIN"
+    comment          = "RW functional role for IT Core team"
   }
 
-  moneymart_account_role_mfsg_creditrisk = {
-    name             = "MFSG_CREDITRISK_ROLE"
+  ########## Team Functional Roles (RO) ##########
+  account_role_mfsg_datasci_ro = {
+    name             = "MFSG_DATASCI_ROLE_RO"
     parent_role_name = "SYSADMIN"
-    comment          = "Role for MFSG Credit Risk silver jobs"
+    comment          = "RO functional role for Data Science team"
+  }
+  account_role_mfsg_creditrisk_ro = {
+    name             = "MFSG_CREDITRISK_ROLE_RO"
+    parent_role_name = "SYSADMIN"
+    comment          = "RO functional role for Credit Risk team"
+  }
+  account_role_mfsg_fraud_ro = {
+    name             = "MFSG_FRAUD_ROLE_RO"
+    parent_role_name = "SYSADMIN"
+    comment          = "RO functional role for Fraud team"
+  }
+  account_role_mfsg_analytics_ro = {
+    name             = "MFSG_ANALYTICS_ROLE_RO"
+    parent_role_name = "SYSADMIN"
+    comment          = "RO functional role for Analytics team"
+  }
+  account_role_mfsg_collection_ro = {
+    name             = "MFSG_COLLECTION_ROLE_RO"
+    parent_role_name = "SYSADMIN"
+    comment          = "RO functional role for Collection team"
+  }
+  account_role_mfsg_allowfor_ro = {
+    name             = "MFSG_ALLOWFOR_ROLE_RO"
+    parent_role_name = "SYSADMIN"
+    comment          = "RO functional role for Allowance & Forecasting team"
+  }
+  account_role_mfsg_it_core_ro = {
+    name             = "MFSG_IT_CORE_ROLE_RO"
+    parent_role_name = "SYSADMIN"
+    comment          = "RO functional role for IT Core team"
   }
 
-  moneymart_account_role_mfsg_fraud = {
-    name             = "MFSG_FRAUD_ROLE"
+  ########## Sandbox Access Roles ##########
+  account_role_dldatascience_sandbox_ro = {
+    name             = "DLDATASCIENCE_SANDBOX_RO"
     parent_role_name = "SYSADMIN"
-    comment          = "Role for MFSG Fraud dev jobs"
+    comment          = "RO access role for Data Science sandbox schema"
+  }
+  account_role_dldatascience_sandbox_rw = {
+    name             = "DLDATASCIENCE_SANDBOX_RW"
+    parent_role_name = "SYSADMIN"
+    comment          = "RW access role for Data Science sandbox schema"
+  }
+  account_role_dlcreditrisk_sandbox_ro = {
+    name             = "DLCREDITRISK_SANDBOX_RO"
+    parent_role_name = "SYSADMIN"
+    comment          = "RO access role for Credit Risk sandbox schema"
+  }
+  account_role_dlcreditrisk_sandbox_rw = {
+    name             = "DLCREDITRISK_SANDBOX_RW"
+    parent_role_name = "SYSADMIN"
+    comment          = "RW access role for Credit Risk sandbox schema"
+  }
+  account_role_dlfraud_sandbox_ro = {
+    name             = "DLFRAUD_SANDBOX_RO"
+    parent_role_name = "SYSADMIN"
+    comment          = "RO access role for Fraud sandbox schema"
+  }
+  account_role_dlfraud_sandbox_rw = {
+    name             = "DLFRAUD_SANDBOX_RW"
+    parent_role_name = "SYSADMIN"
+    comment          = "RW access role for Fraud sandbox schema"
+  }
+  account_role_dlanalytics_sandbox_ro = {
+    name             = "DLANALYTICS_SANDBOX_RO"
+    parent_role_name = "SYSADMIN"
+    comment          = "RO access role for Analytics sandbox schema"
+  }
+  account_role_dlanalytics_sandbox_rw = {
+    name             = "DLANALYTICS_SANDBOX_RW"
+    parent_role_name = "SYSADMIN"
+    comment          = "RW access role for Analytics sandbox schema"
+  }
+  account_role_dlcollection_sandbox_ro = {
+    name             = "DLCOLLECTION_SANDBOX_RO"
+    parent_role_name = "SYSADMIN"
+    comment          = "RO access role for Collection sandbox schema"
+  }
+  account_role_dlcollection_sandbox_rw = {
+    name             = "DLCOLLECTION_SANDBOX_RW"
+    parent_role_name = "SYSADMIN"
+    comment          = "RW access role for Collection sandbox schema"
+  }
+  account_role_dlallowance_sandbox_ro = {
+    name             = "DLALLOWANCE_SANDBOX_RO"
+    parent_role_name = "SYSADMIN"
+    comment          = "RO access role for Allowance sandbox schema"
+  }
+  account_role_dlallowance_sandbox_rw = {
+    name             = "DLALLOWANCE_SANDBOX_RW"
+    parent_role_name = "SYSADMIN"
+    comment          = "RW access role for Allowance sandbox schema"
+  }
+  account_role_dlcore_sandbox_ro = {
+    name             = "DLCORE_SANDBOX_RO"
+    parent_role_name = "SYSADMIN"
+    comment          = "RO access role for Core sandbox schema"
+  }
+  account_role_dlcore_sandbox_rw = {
+    name             = "DLCORE_SANDBOX_RW"
+    parent_role_name = "SYSADMIN"
+    comment          = "RW access role for Core sandbox schema"
   }
 
-  moneymart_account_role_mfsg_analytics = {
-    name             = "MFSG_ANALYTICS_ROLE"
-    parent_role_name = "SYSADMIN"
-    comment          = "Role for MFSG Analytics dev jobs"
-  }
-
-  moneymart_account_role_mfsg_collection = {
-    name             = "MFSG_COLLECTION_ROLE"
-    parent_role_name = "SYSADMIN"
-    comment          = "Role for MFSG Collection dev jobs"
-  }
-
-  moneymart_account_role_mfsg_allowfor = {
-    name             = "MFSG_ALLOWFOR_ROLE"
-    parent_role_name = "SYSADMIN"
-    comment          = "Role for MFSG ALLOWFOR dev jobs"
-  }
-
-  moneymart_account_role_mfsg_it_core = {
-    name             = "MFSG_IT_CORE_ROLE"
-    parent_role_name = "SYSADMIN"
-    comment          = "Role for MFSG IT Core dev jobs"
-  }
-
-  moneymart_account_role_mfsg_dataeng_dev = {
+  ########## Data Engineering Role ##########
+  account_role_mfsg_dataeng_dev = {
     name             = "MFSG_DATAENG_DEV"
     parent_role_name = "SYSADMIN"
-    comment          = "Role for mfsg dataeng dev jobs"
+    comment          = "Data Engineering dev functional role"
   }
 
-  moneymart_account_role_mfsg_openflow_admin = {
+  ########## Openflow Roles ##########
+  account_role_mfsg_openflow_admin = {
     name             = "MFSG_OPENFLOW_ADMIN"
     parent_role_name = "SYSADMIN"
-    comment          = "Role for MFSG OPENFLOW ADMIN"
+    comment          = "Openflow Admin role"
   }
-
-  moneymart_account_role_mfsg_openflow_developer = {
+  account_role_mfsg_openflow_developer = {
     name             = "MFSG_OPENFLOW_DEVELOPER"
     parent_role_name = "MFSG_OPENFLOW_ADMIN"
-    comment          = "Role for MFSG OPENFLOW DEVELOPER"
+    comment          = "Openflow Developer role"
+  }
+  account_role_mfsg_openflow_monitor = {
+    name             = "MFSG_OPENFLOW_MONITOR"
+    parent_role_name = "MFSG_OPENFLOW_DEVELOPER"
+    comment          = "Openflow Monitor role"
   }
 
-  moneymart_account_role_mfsg_openflow_monitor = {
-    name             = "MFSG_OPENFLOW_MONITOR"
-    parent_role_name = "MFSG_OPENFLOW_ADMIN"
-    comment          = "Role for MFSG OPENFLOW MONITOR"
+  ########## DBT Role ##########
+  account_role_mfsg_dbt_runner = {
+    name             = "MFSG_DBT_RUNNER"
+    parent_role_name = "SYSADMIN"
+    comment          = "DBT Runner service role"
+  }
+
+  ########## Terraform Role ##########
+  account_role_mfsg_terraform_admin = {
+    name             = "MFSG_TERRAFORM_ADMIN"
+    parent_role_name = "SYSADMIN"
+    comment          = "Terraform admin service role"
+  }
+
+  ########## PII Role ##########
+  account_role_mask_pii_standard = {
+    name             = "MASK_PII_STANDARD"
+    parent_role_name = "SYSADMIN"
+    comment          = "PII masking standard role"
+  }
+
+  ########## Sigma and Braze Reporting Roles ##########
+  account_role_mfsg_sigma_reader = {
+    name             = "MFSG_SIGMA_READER_ROLE"
+    parent_role_name = "SYSADMIN"
+    comment          = "Sigma reporting reader role"
+  }
+  account_role_mfsg_braze_reader = {
+    name             = "MFSG_BRAZE_READER_ROLE"
+    parent_role_name = "SYSADMIN"
+    comment          = "Braze reporting reader role"
+  }
+
+  ########## Admin DB Access Roles ##########
+  account_role_admin_integration_db_ro = {
+    name             = "ADMIN_INTEGRATION_DB_ROLE_RO"
+    parent_role_name = "SYSADMIN"
+    comment          = "RO access role for Admin Integration DB"
+  }
+  account_role_admin_integration_db_rw = {
+    name             = "ADMIN_INTEGRATION_DB_ROLE_RW"
+    parent_role_name = "SYSADMIN"
+    comment          = "RW access role for Admin Integration DB"
+  }
+
+  ########## Gold DB Access Roles (no schemas, so not auto-generated) ##########
+  account_role_dlconsumption_gold_ro = {
+    name             = "DLCONSUMPTION_GOLD_RO"
+    parent_role_name = "SYSADMIN"
+    comment          = "Read-only role for database DLCONSUMPTION_GOLD"
+  }
+  account_role_dlconsumption_gold_rw = {
+    name             = "DLCONSUMPTION_GOLD_RW"
+    parent_role_name = "SYSADMIN"
+    comment          = "Read-write role for database DLCONSUMPTION_GOLD"
+  }
+
+  ########## Warehouse Usage Roles ##########
+  account_role_xs_bronze_usage = {
+    name             = "XS_BRONZE_USAGE_ROLE"
+    parent_role_name = "SYSADMIN"
+    comment          = "Warehouse usage role for XS_BRONZE"
+  }
+  account_role_xs_silver_usage = {
+    name             = "XS_SILVER_USAGE_ROLE"
+    parent_role_name = "SYSADMIN"
+    comment          = "Warehouse usage role for XS_SILVER"
+  }
+  account_role_xs_gold_usage = {
+    name             = "XS_GOLD_USAGE_ROLE"
+    parent_role_name = "SYSADMIN"
+    comment          = "Warehouse usage role for XS_GOLD"
+  }
+  account_role_xs_sigma_usage = {
+    name             = "XS_SIGMA_USAGE_ROLE"
+    parent_role_name = "SYSADMIN"
+    comment          = "Warehouse usage role for XS_SIGMA"
+  }
+  account_role_xs_braze_usage = {
+    name             = "XS_BRAZE_USAGE_ROLE"
+    parent_role_name = "SYSADMIN"
+    comment          = "Warehouse usage role for XS_BRAZE"
   }
 
 }
 
 custom_role_privilege_grants = {
 
-  moneymart_grant_privileges_account_role_mfsg_openflow_developer_bronze = {
-    account_role_name = "MFSG_OPENFLOW_DEVELOPER"
-    privileges        = ["USAGE", "OPERATE", "MONITOR"]
-    on_account_object = {
-      object_type = "WAREHOUSE"
-      object_name = "XS_BRONZE"
-    }
-  }
-
-  moneymart_grant_privileges_account_role_mfsg_openflow_admin_bronze = {
-    account_role_name = "MFSG_OPENFLOW_ADMIN"
-    privileges        = ["USAGE", "OPERATE", "MONITOR"]
-    on_account_object = {
-      object_type = "WAREHOUSE"
-      object_name = "XS_BRONZE"
-    }
-  }
-
-  moneymart_grant_privileges_account_role_mfsg_openflow_monitor_bronze = {
-    account_role_name = "MFSG_OPENFLOW_MONITOR"
-    privileges        = ["USAGE", "OPERATE", "MONITOR"]
-    on_account_object = {
-      object_type = "WAREHOUSE"
-      object_name = "XS_BRONZE"
-    }
-  }
-
-  moneymart_grant_privileges_account_role_dataeng_dev_bronze = {
-    account_role_name = "DATAENG_DEV"
+  ######################################################################
+  # WAREHOUSE USAGE GRANTS (warehouse → warehouse usage role)
+  ######################################################################
+  grant_wh_usage_xs_bronze = {
+    account_role_name = "XS_BRONZE_USAGE_ROLE"
     privileges        = ["USAGE"]
     on_account_object = {
       object_type = "WAREHOUSE"
       object_name = "XS_BRONZE"
     }
   }
-
-  moneymart_grant_privileges_account_role_dbt_runner_silver = {
-    account_role_name = "DBT_RUNNER"
+  grant_wh_usage_xs_silver = {
+    account_role_name = "XS_SILVER_USAGE_ROLE"
     privileges        = ["USAGE"]
     on_account_object = {
       object_type = "WAREHOUSE"
       object_name = "XS_SILVER"
     }
   }
-
-  moneymart_grant_privileges_account_role_dbt_readonly_silver = {
-    account_role_name = "DBT_READONLY"
-    privileges        = ["USAGE"]
-    on_account_object = {
-      object_type = "WAREHOUSE"
-      object_name = "XS_SILVER"
-    }
-  }
-
-  moneymart_grant_privileges_account_role_dataeng_dev_silver = {
-    account_role_name = "DATAENG_DEV_SILVER"
-    privileges        = ["USAGE"]
-    on_account_object = {
-      object_type = "WAREHOUSE"
-      object_name = "XS_SILVER"
-    }
-  }
-
-  moneymart_grant_privileges_account_role_dbt_runner_gold = {
-    account_role_name = "DBT_RUNNER_GOLD"
+  grant_wh_usage_xs_gold = {
+    account_role_name = "XS_GOLD_USAGE_ROLE"
     privileges        = ["USAGE"]
     on_account_object = {
       object_type = "WAREHOUSE"
       object_name = "XS_GOLD"
     }
   }
-
-  moneymart_grant_privileges_account_role_dataeng_dev_gold = {
-    account_role_name = "DATAENG_DEV_GOLD"
-    privileges        = ["USAGE"]
-    on_account_object = {
-      object_type = "WAREHOUSE"
-      object_name = "XS_GOLD"
-    }
-  }
-
-  moneymart_grant_privileges_account_role_mfsg_analytics_ro_sigma = {
-    account_role_name = "MFSG_ANALYTICS_RO"
+  grant_wh_usage_xs_sigma = {
+    account_role_name = "XS_SIGMA_USAGE_ROLE"
     privileges        = ["USAGE"]
     on_account_object = {
       object_type = "WAREHOUSE"
       object_name = "XS_SIGMA"
     }
   }
-
-  moneymart_grant_privileges_account_role_mfsg_dataeng_dev_braze = {
-    account_role_name = "MFSG_DATAENG_DEV"
+  grant_wh_usage_xs_braze = {
+    account_role_name = "XS_BRAZE_USAGE_ROLE"
     privileges        = ["USAGE"]
     on_account_object = {
       object_type = "WAREHOUSE"
@@ -240,10 +380,444 @@ custom_role_privilege_grants = {
     }
   }
 
+  ######################################################################
+  # DLCONSUMPTION_GOLD DB GRANTS (no schemas, so not auto-generated)
+  ######################################################################
+  grant_gold_db_usage_ro = {
+    account_role_name = "DLCONSUMPTION_GOLD_RO"
+    privileges        = ["USAGE"]
+    on_account_object = {
+      object_type = "DATABASE"
+      object_name = "DLCONSUMPTION_GOLD"
+    }
+  }
+  grant_gold_db_usage_rw = {
+    account_role_name = "DLCONSUMPTION_GOLD_RW"
+    privileges        = ["USAGE"]
+    on_account_object = {
+      object_type = "DATABASE"
+      object_name = "DLCONSUMPTION_GOLD"
+    }
+  }
+  grant_gold_db_tables_ro = {
+    account_role_name = "DLCONSUMPTION_GOLD_RO"
+    privileges        = ["SELECT"]
+    on_schema_object = {
+      all = {
+        object_type_plural = "TABLES"
+        in_database        = "DLCONSUMPTION_GOLD"
+      }
+    }
+  }
+  grant_gold_db_future_tables_ro = {
+    account_role_name = "DLCONSUMPTION_GOLD_RO"
+    privileges        = ["SELECT"]
+    on_schema_object = {
+      future = {
+        object_type_plural = "TABLES"
+        in_database        = "DLCONSUMPTION_GOLD"
+      }
+    }
+  }
+  grant_gold_db_tables_rw = {
+    account_role_name = "DLCONSUMPTION_GOLD_RW"
+    privileges        = ["SELECT", "INSERT", "UPDATE", "DELETE", "TRUNCATE", "REFERENCES"]
+    on_schema_object = {
+      all = {
+        object_type_plural = "TABLES"
+        in_database        = "DLCONSUMPTION_GOLD"
+      }
+    }
+  }
+  grant_gold_db_future_tables_rw = {
+    account_role_name = "DLCONSUMPTION_GOLD_RW"
+    privileges        = ["SELECT", "INSERT", "UPDATE", "DELETE", "TRUNCATE", "REFERENCES"]
+    on_schema_object = {
+      future = {
+        object_type_plural = "TABLES"
+        in_database        = "DLCONSUMPTION_GOLD"
+      }
+    }
+  }
+
+  ######################################################################
+  # ADMIN_INTEGRATION_DB GRANTS
+  ######################################################################
+  grant_admin_db_usage_ro = {
+    account_role_name = "ADMIN_INTEGRATION_DB_ROLE_RO"
+    privileges        = ["USAGE"]
+    on_account_object = {
+      object_type = "DATABASE"
+      object_name = "ADMIN_INTEGRATION_DB"
+    }
+  }
+  grant_admin_db_usage_rw = {
+    account_role_name = "ADMIN_INTEGRATION_DB_ROLE_RW"
+    privileges        = ["USAGE"]
+    on_account_object = {
+      object_type = "DATABASE"
+      object_name = "ADMIN_INTEGRATION_DB"
+    }
+  }
+  grant_admin_db_schema_ro = {
+    account_role_name = "ADMIN_INTEGRATION_DB_ROLE_RO"
+    privileges        = ["USAGE"]
+    on_schema = {
+      schema_name = "ADMIN_INTEGRATION_DB.NETWORKING"
+    }
+  }
+  grant_admin_db_schema_rw = {
+    account_role_name = "ADMIN_INTEGRATION_DB_ROLE_RW"
+    privileges        = ["USAGE", "CREATE TABLE", "CREATE VIEW", "CREATE STAGE", "CREATE FILE FORMAT", "CREATE SEQUENCE", "CREATE FUNCTION", "CREATE PROCEDURE"]
+    on_schema = {
+      schema_name = "ADMIN_INTEGRATION_DB.NETWORKING"
+    }
+  }
+  grant_admin_db_tables_ro = {
+    account_role_name = "ADMIN_INTEGRATION_DB_ROLE_RO"
+    privileges        = ["SELECT"]
+    on_schema_object = {
+      all = {
+        object_type_plural = "TABLES"
+        in_database        = "ADMIN_INTEGRATION_DB"
+      }
+    }
+  }
+  grant_admin_db_future_tables_ro = {
+    account_role_name = "ADMIN_INTEGRATION_DB_ROLE_RO"
+    privileges        = ["SELECT"]
+    on_schema_object = {
+      future = {
+        object_type_plural = "TABLES"
+        in_database        = "ADMIN_INTEGRATION_DB"
+      }
+    }
+  }
+  grant_admin_db_tables_rw = {
+    account_role_name = "ADMIN_INTEGRATION_DB_ROLE_RW"
+    privileges        = ["SELECT", "INSERT", "UPDATE", "DELETE", "TRUNCATE", "REFERENCES"]
+    on_schema_object = {
+      all = {
+        object_type_plural = "TABLES"
+        in_database        = "ADMIN_INTEGRATION_DB"
+      }
+    }
+  }
+  grant_admin_db_future_tables_rw = {
+    account_role_name = "ADMIN_INTEGRATION_DB_ROLE_RW"
+    privileges        = ["SELECT", "INSERT", "UPDATE", "DELETE", "TRUNCATE", "REFERENCES"]
+    on_schema_object = {
+      future = {
+        object_type_plural = "TABLES"
+        in_database        = "ADMIN_INTEGRATION_DB"
+      }
+    }
+  }
+
+  ######################################################################
+  # SANDBOX SCHEMA GRANTS (RO and RW per sandbox)
+  ######################################################################
+  grant_sandbox_datasci_rw = {
+    account_role_name = "DLDATASCIENCE_SANDBOX_RW"
+    privileges        = ["USAGE", "CREATE TABLE", "CREATE VIEW", "CREATE STAGE", "CREATE FILE FORMAT", "CREATE SEQUENCE", "CREATE FUNCTION", "CREATE PROCEDURE"]
+    on_schema = {
+      schema_name = "DLSNAPSHOT_SILVER.DLDATASCIENCE_SANDBOX"
+    }
+  }
+  grant_sandbox_datasci_rw_tables = {
+    account_role_name = "DLDATASCIENCE_SANDBOX_RW"
+    privileges        = ["SELECT", "INSERT", "UPDATE", "DELETE", "TRUNCATE", "REFERENCES"]
+    on_schema_object = {
+      all = {
+        object_type_plural = "TABLES"
+        in_schema          = "DLSNAPSHOT_SILVER.DLDATASCIENCE_SANDBOX"
+      }
+    }
+  }
+  grant_sandbox_datasci_ro = {
+    account_role_name = "DLDATASCIENCE_SANDBOX_RO"
+    privileges        = ["USAGE"]
+    on_schema = {
+      schema_name = "DLSNAPSHOT_SILVER.DLDATASCIENCE_SANDBOX"
+    }
+  }
+  grant_sandbox_datasci_ro_tables = {
+    account_role_name = "DLDATASCIENCE_SANDBOX_RO"
+    privileges        = ["SELECT"]
+    on_schema_object = {
+      all = {
+        object_type_plural = "TABLES"
+        in_schema          = "DLSNAPSHOT_SILVER.DLDATASCIENCE_SANDBOX"
+      }
+    }
+  }
+
+  grant_sandbox_creditrisk_rw = {
+    account_role_name = "DLCREDITRISK_SANDBOX_RW"
+    privileges        = ["USAGE", "CREATE TABLE", "CREATE VIEW", "CREATE STAGE", "CREATE FILE FORMAT", "CREATE SEQUENCE", "CREATE FUNCTION", "CREATE PROCEDURE"]
+    on_schema = {
+      schema_name = "DLSNAPSHOT_SILVER.DLCREDITRISK_SANDBOX"
+    }
+  }
+  grant_sandbox_creditrisk_rw_tables = {
+    account_role_name = "DLCREDITRISK_SANDBOX_RW"
+    privileges        = ["SELECT", "INSERT", "UPDATE", "DELETE", "TRUNCATE", "REFERENCES"]
+    on_schema_object = {
+      all = {
+        object_type_plural = "TABLES"
+        in_schema          = "DLSNAPSHOT_SILVER.DLCREDITRISK_SANDBOX"
+      }
+    }
+  }
+  grant_sandbox_creditrisk_ro = {
+    account_role_name = "DLCREDITRISK_SANDBOX_RO"
+    privileges        = ["USAGE"]
+    on_schema = {
+      schema_name = "DLSNAPSHOT_SILVER.DLCREDITRISK_SANDBOX"
+    }
+  }
+  grant_sandbox_creditrisk_ro_tables = {
+    account_role_name = "DLCREDITRISK_SANDBOX_RO"
+    privileges        = ["SELECT"]
+    on_schema_object = {
+      all = {
+        object_type_plural = "TABLES"
+        in_schema          = "DLSNAPSHOT_SILVER.DLCREDITRISK_SANDBOX"
+      }
+    }
+  }
+
+  grant_sandbox_fraud_rw = {
+    account_role_name = "DLFRAUD_SANDBOX_RW"
+    privileges        = ["USAGE", "CREATE TABLE", "CREATE VIEW", "CREATE STAGE", "CREATE FILE FORMAT", "CREATE SEQUENCE", "CREATE FUNCTION", "CREATE PROCEDURE"]
+    on_schema = {
+      schema_name = "DLSNAPSHOT_SILVER.DLFRAUD_SANDBOX"
+    }
+  }
+  grant_sandbox_fraud_rw_tables = {
+    account_role_name = "DLFRAUD_SANDBOX_RW"
+    privileges        = ["SELECT", "INSERT", "UPDATE", "DELETE", "TRUNCATE", "REFERENCES"]
+    on_schema_object = {
+      all = {
+        object_type_plural = "TABLES"
+        in_schema          = "DLSNAPSHOT_SILVER.DLFRAUD_SANDBOX"
+      }
+    }
+  }
+  grant_sandbox_fraud_ro = {
+    account_role_name = "DLFRAUD_SANDBOX_RO"
+    privileges        = ["USAGE"]
+    on_schema = {
+      schema_name = "DLSNAPSHOT_SILVER.DLFRAUD_SANDBOX"
+    }
+  }
+  grant_sandbox_fraud_ro_tables = {
+    account_role_name = "DLFRAUD_SANDBOX_RO"
+    privileges        = ["SELECT"]
+    on_schema_object = {
+      all = {
+        object_type_plural = "TABLES"
+        in_schema          = "DLSNAPSHOT_SILVER.DLFRAUD_SANDBOX"
+      }
+    }
+  }
+
+  grant_sandbox_analytics_rw = {
+    account_role_name = "DLANALYTICS_SANDBOX_RW"
+    privileges        = ["USAGE", "CREATE TABLE", "CREATE VIEW", "CREATE STAGE", "CREATE FILE FORMAT", "CREATE SEQUENCE", "CREATE FUNCTION", "CREATE PROCEDURE"]
+    on_schema = {
+      schema_name = "DLSNAPSHOT_SILVER.DLANALYTICS_SANDBOX"
+    }
+  }
+  grant_sandbox_analytics_rw_tables = {
+    account_role_name = "DLANALYTICS_SANDBOX_RW"
+    privileges        = ["SELECT", "INSERT", "UPDATE", "DELETE", "TRUNCATE", "REFERENCES"]
+    on_schema_object = {
+      all = {
+        object_type_plural = "TABLES"
+        in_schema          = "DLSNAPSHOT_SILVER.DLANALYTICS_SANDBOX"
+      }
+    }
+  }
+  grant_sandbox_analytics_ro = {
+    account_role_name = "DLANALYTICS_SANDBOX_RO"
+    privileges        = ["USAGE"]
+    on_schema = {
+      schema_name = "DLSNAPSHOT_SILVER.DLANALYTICS_SANDBOX"
+    }
+  }
+  grant_sandbox_analytics_ro_tables = {
+    account_role_name = "DLANALYTICS_SANDBOX_RO"
+    privileges        = ["SELECT"]
+    on_schema_object = {
+      all = {
+        object_type_plural = "TABLES"
+        in_schema          = "DLSNAPSHOT_SILVER.DLANALYTICS_SANDBOX"
+      }
+    }
+  }
+
+  grant_sandbox_collection_rw = {
+    account_role_name = "DLCOLLECTION_SANDBOX_RW"
+    privileges        = ["USAGE", "CREATE TABLE", "CREATE VIEW", "CREATE STAGE", "CREATE FILE FORMAT", "CREATE SEQUENCE", "CREATE FUNCTION", "CREATE PROCEDURE"]
+    on_schema = {
+      schema_name = "DLSNAPSHOT_SILVER.DLCOLLECTION_SANDBOX"
+    }
+  }
+  grant_sandbox_collection_rw_tables = {
+    account_role_name = "DLCOLLECTION_SANDBOX_RW"
+    privileges        = ["SELECT", "INSERT", "UPDATE", "DELETE", "TRUNCATE", "REFERENCES"]
+    on_schema_object = {
+      all = {
+        object_type_plural = "TABLES"
+        in_schema          = "DLSNAPSHOT_SILVER.DLCOLLECTION_SANDBOX"
+      }
+    }
+  }
+  grant_sandbox_collection_ro = {
+    account_role_name = "DLCOLLECTION_SANDBOX_RO"
+    privileges        = ["USAGE"]
+    on_schema = {
+      schema_name = "DLSNAPSHOT_SILVER.DLCOLLECTION_SANDBOX"
+    }
+  }
+  grant_sandbox_collection_ro_tables = {
+    account_role_name = "DLCOLLECTION_SANDBOX_RO"
+    privileges        = ["SELECT"]
+    on_schema_object = {
+      all = {
+        object_type_plural = "TABLES"
+        in_schema          = "DLSNAPSHOT_SILVER.DLCOLLECTION_SANDBOX"
+      }
+    }
+  }
+
+  grant_sandbox_allowance_rw = {
+    account_role_name = "DLALLOWANCE_SANDBOX_RW"
+    privileges        = ["USAGE", "CREATE TABLE", "CREATE VIEW", "CREATE STAGE", "CREATE FILE FORMAT", "CREATE SEQUENCE", "CREATE FUNCTION", "CREATE PROCEDURE"]
+    on_schema = {
+      schema_name = "DLSNAPSHOT_SILVER.DLALLOWANCE_SANDBOX"
+    }
+  }
+  grant_sandbox_allowance_rw_tables = {
+    account_role_name = "DLALLOWANCE_SANDBOX_RW"
+    privileges        = ["SELECT", "INSERT", "UPDATE", "DELETE", "TRUNCATE", "REFERENCES"]
+    on_schema_object = {
+      all = {
+        object_type_plural = "TABLES"
+        in_schema          = "DLSNAPSHOT_SILVER.DLALLOWANCE_SANDBOX"
+      }
+    }
+  }
+  grant_sandbox_allowance_ro = {
+    account_role_name = "DLALLOWANCE_SANDBOX_RO"
+    privileges        = ["USAGE"]
+    on_schema = {
+      schema_name = "DLSNAPSHOT_SILVER.DLALLOWANCE_SANDBOX"
+    }
+  }
+  grant_sandbox_allowance_ro_tables = {
+    account_role_name = "DLALLOWANCE_SANDBOX_RO"
+    privileges        = ["SELECT"]
+    on_schema_object = {
+      all = {
+        object_type_plural = "TABLES"
+        in_schema          = "DLSNAPSHOT_SILVER.DLALLOWANCE_SANDBOX"
+      }
+    }
+  }
+
+  grant_sandbox_core_rw = {
+    account_role_name = "DLCORE_SANDBOX_RW"
+    privileges        = ["USAGE", "CREATE TABLE", "CREATE VIEW", "CREATE STAGE", "CREATE FILE FORMAT", "CREATE SEQUENCE", "CREATE FUNCTION", "CREATE PROCEDURE"]
+    on_schema = {
+      schema_name = "DLSNAPSHOT_SILVER.DLCORE_SANDBOX"
+    }
+  }
+  grant_sandbox_core_rw_tables = {
+    account_role_name = "DLCORE_SANDBOX_RW"
+    privileges        = ["SELECT", "INSERT", "UPDATE", "DELETE", "TRUNCATE", "REFERENCES"]
+    on_schema_object = {
+      all = {
+        object_type_plural = "TABLES"
+        in_schema          = "DLSNAPSHOT_SILVER.DLCORE_SANDBOX"
+      }
+    }
+  }
+  grant_sandbox_core_ro = {
+    account_role_name = "DLCORE_SANDBOX_RO"
+    privileges        = ["USAGE"]
+    on_schema = {
+      schema_name = "DLSNAPSHOT_SILVER.DLCORE_SANDBOX"
+    }
+  }
+  grant_sandbox_core_ro_tables = {
+    account_role_name = "DLCORE_SANDBOX_RO"
+    privileges        = ["SELECT"]
+    on_schema_object = {
+      all = {
+        object_type_plural = "TABLES"
+        in_schema          = "DLSNAPSHOT_SILVER.DLCORE_SANDBOX"
+      }
+    }
+  }
+
 }
 
-########## Schemas for Bronze Database ###########
+########## Schemas for Admin Integration DB ###########
 schemas = {
+  NETWORKING_Admin = {
+    database            = "ADMIN_INTEGRATION_DB"
+    name                = "NETWORKING"
+    comment             = "Schema for network rules, secrets, and integration objects"
+    with_managed_access = false
+  }
+
+  ########## Sandbox Schemas on Silver DB ###########
+  DLDATASCIENCE_SANDBOX_Silver = {
+    database            = "DLSNAPSHOT_SILVER"
+    name                = "DLDATASCIENCE_SANDBOX"
+    comment             = "Sandbox schema for Data Science team"
+    with_managed_access = false
+  }
+  DLCREDITRISK_SANDBOX_Silver = {
+    database            = "DLSNAPSHOT_SILVER"
+    name                = "DLCREDITRISK_SANDBOX"
+    comment             = "Sandbox schema for Credit Risk team"
+    with_managed_access = false
+  }
+  DLFRAUD_SANDBOX_Silver = {
+    database            = "DLSNAPSHOT_SILVER"
+    name                = "DLFRAUD_SANDBOX"
+    comment             = "Sandbox schema for Fraud team"
+    with_managed_access = false
+  }
+  DLANALYTICS_SANDBOX_Silver = {
+    database            = "DLSNAPSHOT_SILVER"
+    name                = "DLANALYTICS_SANDBOX"
+    comment             = "Sandbox schema for Analytics team"
+    with_managed_access = false
+  }
+  DLCOLLECTION_SANDBOX_Silver = {
+    database            = "DLSNAPSHOT_SILVER"
+    name                = "DLCOLLECTION_SANDBOX"
+    comment             = "Sandbox schema for Collection team"
+    with_managed_access = false
+  }
+  DLALLOWANCE_SANDBOX_Silver = {
+    database            = "DLSNAPSHOT_SILVER"
+    name                = "DLALLOWANCE_SANDBOX"
+    comment             = "Sandbox schema for Allowance & Forecast team"
+    with_managed_access = false
+  }
+  DLCORE_SANDBOX_Silver = {
+    database            = "DLSNAPSHOT_SILVER"
+    name                = "DLCORE_SANDBOX"
+    comment             = "Sandbox schema for Core team"
+    with_managed_access = false
+  }
+
+  ########## Schemas for Bronze Database ###########
   RDS_BANKSQL01_AUTOBANK_US_Bronze = {
     database            = "DLSTAGE_BRONZE"
     name                = "RDS_BANKSQL01_AUTOBANK_US"
@@ -808,10 +1382,422 @@ schemas = {
 }
 
 
+######################################################################
+# ROLE-TO-ROLE GRANTS
+# Grant DB access roles, sandbox roles, warehouse usage roles, and
+# admin DB roles to functional roles per the RBAC Excel spec.
+######################################################################
+role_to_role_grants = {
+
+  ########## RW Functional Roles → Sandbox RW + Silver RO + Gold RO ##########
+  # MFSG_DATASCI_ROLE_RW
+  grant_datasci_rw_sandbox = {
+    role_name        = "DLDATASCIENCE_SANDBOX_RW"
+    parent_role_name = "MFSG_DATASCI_ROLE_RW"
+  }
+  grant_datasci_rw_silver_ro = {
+    role_name        = "DLSNAPSHOT_SILVER_RO"
+    parent_role_name = "MFSG_DATASCI_ROLE_RW"
+  }
+  grant_datasci_rw_gold_ro = {
+    role_name        = "DLCONSUMPTION_GOLD_RO"
+    parent_role_name = "MFSG_DATASCI_ROLE_RW"
+  }
+
+  # MFSG_CREDITRISK_ROLE_RW
+  grant_creditrisk_rw_sandbox = {
+    role_name        = "DLCREDITRISK_SANDBOX_RW"
+    parent_role_name = "MFSG_CREDITRISK_ROLE_RW"
+  }
+  grant_creditrisk_rw_silver_ro = {
+    role_name        = "DLSNAPSHOT_SILVER_RO"
+    parent_role_name = "MFSG_CREDITRISK_ROLE_RW"
+  }
+  grant_creditrisk_rw_gold_ro = {
+    role_name        = "DLCONSUMPTION_GOLD_RO"
+    parent_role_name = "MFSG_CREDITRISK_ROLE_RW"
+  }
+
+  # MFSG_FRAUD_ROLE_RW
+  grant_fraud_rw_sandbox = {
+    role_name        = "DLFRAUD_SANDBOX_RW"
+    parent_role_name = "MFSG_FRAUD_ROLE_RW"
+  }
+  grant_fraud_rw_silver_ro = {
+    role_name        = "DLSNAPSHOT_SILVER_RO"
+    parent_role_name = "MFSG_FRAUD_ROLE_RW"
+  }
+  grant_fraud_rw_gold_ro = {
+    role_name        = "DLCONSUMPTION_GOLD_RO"
+    parent_role_name = "MFSG_FRAUD_ROLE_RW"
+  }
+
+  # MFSG_ANALYTICS_ROLE_RW
+  grant_analytics_rw_sandbox = {
+    role_name        = "DLANALYTICS_SANDBOX_RW"
+    parent_role_name = "MFSG_ANALYTICS_ROLE_RW"
+  }
+  grant_analytics_rw_silver_ro = {
+    role_name        = "DLSNAPSHOT_SILVER_RO"
+    parent_role_name = "MFSG_ANALYTICS_ROLE_RW"
+  }
+  grant_analytics_rw_gold_ro = {
+    role_name        = "DLCONSUMPTION_GOLD_RO"
+    parent_role_name = "MFSG_ANALYTICS_ROLE_RW"
+  }
+
+  # MFSG_COLLECTION_ROLE_RW
+  grant_collection_rw_sandbox = {
+    role_name        = "DLCOLLECTION_SANDBOX_RW"
+    parent_role_name = "MFSG_COLLECTION_ROLE_RW"
+  }
+  grant_collection_rw_silver_ro = {
+    role_name        = "DLSNAPSHOT_SILVER_RO"
+    parent_role_name = "MFSG_COLLECTION_ROLE_RW"
+  }
+  grant_collection_rw_gold_ro = {
+    role_name        = "DLCONSUMPTION_GOLD_RO"
+    parent_role_name = "MFSG_COLLECTION_ROLE_RW"
+  }
+
+  # MFSG_ALLOWFOR_ROLE_RW
+  grant_allowfor_rw_sandbox = {
+    role_name        = "DLALLOWANCE_SANDBOX_RW"
+    parent_role_name = "MFSG_ALLOWFOR_ROLE_RW"
+  }
+  grant_allowfor_rw_silver_ro = {
+    role_name        = "DLSNAPSHOT_SILVER_RO"
+    parent_role_name = "MFSG_ALLOWFOR_ROLE_RW"
+  }
+  grant_allowfor_rw_gold_ro = {
+    role_name        = "DLCONSUMPTION_GOLD_RO"
+    parent_role_name = "MFSG_ALLOWFOR_ROLE_RW"
+  }
+
+  # MFSG_IT_CORE_ROLE_RW
+  grant_it_core_rw_sandbox = {
+    role_name        = "DLCORE_SANDBOX_RW"
+    parent_role_name = "MFSG_IT_CORE_ROLE_RW"
+  }
+  grant_it_core_rw_silver_ro = {
+    role_name        = "DLSNAPSHOT_SILVER_RO"
+    parent_role_name = "MFSG_IT_CORE_ROLE_RW"
+  }
+  grant_it_core_rw_gold_ro = {
+    role_name        = "DLCONSUMPTION_GOLD_RO"
+    parent_role_name = "MFSG_IT_CORE_ROLE_RW"
+  }
+
+  ########## RO Functional Roles → Silver RO + Gold RO ##########
+  grant_datasci_ro_silver_ro = {
+    role_name        = "DLSNAPSHOT_SILVER_RO"
+    parent_role_name = "MFSG_DATASCI_ROLE_RO"
+  }
+  grant_datasci_ro_gold_ro = {
+    role_name        = "DLCONSUMPTION_GOLD_RO"
+    parent_role_name = "MFSG_DATASCI_ROLE_RO"
+  }
+  grant_creditrisk_ro_silver_ro = {
+    role_name        = "DLSNAPSHOT_SILVER_RO"
+    parent_role_name = "MFSG_CREDITRISK_ROLE_RO"
+  }
+  grant_creditrisk_ro_gold_ro = {
+    role_name        = "DLCONSUMPTION_GOLD_RO"
+    parent_role_name = "MFSG_CREDITRISK_ROLE_RO"
+  }
+  grant_fraud_ro_silver_ro = {
+    role_name        = "DLSNAPSHOT_SILVER_RO"
+    parent_role_name = "MFSG_FRAUD_ROLE_RO"
+  }
+  grant_fraud_ro_gold_ro = {
+    role_name        = "DLCONSUMPTION_GOLD_RO"
+    parent_role_name = "MFSG_FRAUD_ROLE_RO"
+  }
+  grant_analytics_ro_silver_ro = {
+    role_name        = "DLSNAPSHOT_SILVER_RO"
+    parent_role_name = "MFSG_ANALYTICS_ROLE_RO"
+  }
+  grant_analytics_ro_gold_ro = {
+    role_name        = "DLCONSUMPTION_GOLD_RO"
+    parent_role_name = "MFSG_ANALYTICS_ROLE_RO"
+  }
+  grant_collection_ro_silver_ro = {
+    role_name        = "DLSNAPSHOT_SILVER_RO"
+    parent_role_name = "MFSG_COLLECTION_ROLE_RO"
+  }
+  grant_collection_ro_gold_ro = {
+    role_name        = "DLCONSUMPTION_GOLD_RO"
+    parent_role_name = "MFSG_COLLECTION_ROLE_RO"
+  }
+  grant_allowfor_ro_silver_ro = {
+    role_name        = "DLSNAPSHOT_SILVER_RO"
+    parent_role_name = "MFSG_ALLOWFOR_ROLE_RO"
+  }
+  grant_allowfor_ro_gold_ro = {
+    role_name        = "DLCONSUMPTION_GOLD_RO"
+    parent_role_name = "MFSG_ALLOWFOR_ROLE_RO"
+  }
+  grant_it_core_ro_silver_ro = {
+    role_name        = "DLSNAPSHOT_SILVER_RO"
+    parent_role_name = "MFSG_IT_CORE_ROLE_RO"
+  }
+  grant_it_core_ro_gold_ro = {
+    role_name        = "DLCONSUMPTION_GOLD_RO"
+    parent_role_name = "MFSG_IT_CORE_ROLE_RO"
+  }
+
+  ########## MFSG_DATAENG_DEV → Bronze RW + Silver RW + Gold RW + Admin RO ##########
+  grant_dataeng_bronze_rw = {
+    role_name        = "DLSTAGE_BRONZE_RW"
+    parent_role_name = "MFSG_DATAENG_DEV"
+  }
+  grant_dataeng_silver_rw = {
+    role_name        = "DLSNAPSHOT_SILVER_RW"
+    parent_role_name = "MFSG_DATAENG_DEV"
+  }
+  grant_dataeng_gold_rw = {
+    role_name        = "DLCONSUMPTION_GOLD_RW"
+    parent_role_name = "MFSG_DATAENG_DEV"
+  }
+  grant_dataeng_admin_ro = {
+    role_name        = "ADMIN_INTEGRATION_DB_ROLE_RO"
+    parent_role_name = "MFSG_DATAENG_DEV"
+  }
+
+  ########## Openflow Roles → DB Access Roles + Admin RO ##########
+  grant_openflow_admin_bronze_rw = {
+    role_name        = "DLSTAGE_BRONZE_RW"
+    parent_role_name = "MFSG_OPENFLOW_ADMIN"
+  }
+  grant_openflow_admin_admin_ro = {
+    role_name        = "ADMIN_INTEGRATION_DB_ROLE_RO"
+    parent_role_name = "MFSG_OPENFLOW_ADMIN"
+  }
+  grant_openflow_developer_bronze_rw = {
+    role_name        = "DLSTAGE_BRONZE_RW"
+    parent_role_name = "MFSG_OPENFLOW_DEVELOPER"
+  }
+  grant_openflow_developer_admin_ro = {
+    role_name        = "ADMIN_INTEGRATION_DB_ROLE_RO"
+    parent_role_name = "MFSG_OPENFLOW_DEVELOPER"
+  }
+  grant_openflow_monitor_bronze_ro = {
+    role_name        = "DLSTAGE_BRONZE_RO"
+    parent_role_name = "MFSG_OPENFLOW_MONITOR"
+  }
+  grant_openflow_monitor_admin_ro = {
+    role_name        = "ADMIN_INTEGRATION_DB_ROLE_RO"
+    parent_role_name = "MFSG_OPENFLOW_MONITOR"
+  }
+
+  ########## MFSG_DBT_RUNNER → Bronze RO + Silver RW + Gold RW + Admin RO ##########
+  grant_dbt_runner_bronze_ro = {
+    role_name        = "DLSTAGE_BRONZE_RO"
+    parent_role_name = "MFSG_DBT_RUNNER"
+  }
+  grant_dbt_runner_silver_rw = {
+    role_name        = "DLSNAPSHOT_SILVER_RW"
+    parent_role_name = "MFSG_DBT_RUNNER"
+  }
+  grant_dbt_runner_gold_rw = {
+    role_name        = "DLCONSUMPTION_GOLD_RW"
+    parent_role_name = "MFSG_DBT_RUNNER"
+  }
+  grant_dbt_runner_admin_ro = {
+    role_name        = "ADMIN_INTEGRATION_DB_ROLE_RO"
+    parent_role_name = "MFSG_DBT_RUNNER"
+  }
+
+  ########## MFSG_TERRAFORM_ADMIN → Bronze RW + Silver RW + Gold RW + Admin RW ##########
+  grant_terraform_bronze_rw = {
+    role_name        = "DLSTAGE_BRONZE_RW"
+    parent_role_name = "MFSG_TERRAFORM_ADMIN"
+  }
+  grant_terraform_silver_rw = {
+    role_name        = "DLSNAPSHOT_SILVER_RW"
+    parent_role_name = "MFSG_TERRAFORM_ADMIN"
+  }
+  grant_terraform_gold_rw = {
+    role_name        = "DLCONSUMPTION_GOLD_RW"
+    parent_role_name = "MFSG_TERRAFORM_ADMIN"
+  }
+  grant_terraform_admin_rw = {
+    role_name        = "ADMIN_INTEGRATION_DB_ROLE_RW"
+    parent_role_name = "MFSG_TERRAFORM_ADMIN"
+  }
+
+  ########## MASK_PII_STANDARD → Bronze RO + Silver RO + Gold RO ##########
+  grant_pii_bronze_ro = {
+    role_name        = "DLSTAGE_BRONZE_RO"
+    parent_role_name = "MASK_PII_STANDARD"
+  }
+  grant_pii_silver_ro = {
+    role_name        = "DLSNAPSHOT_SILVER_RO"
+    parent_role_name = "MASK_PII_STANDARD"
+  }
+  grant_pii_gold_ro = {
+    role_name        = "DLCONSUMPTION_GOLD_RO"
+    parent_role_name = "MASK_PII_STANDARD"
+  }
+
+  ########## Sigma + Braze → Gold RO ##########
+  grant_sigma_gold_ro = {
+    role_name        = "DLCONSUMPTION_GOLD_RO"
+    parent_role_name = "MFSG_SIGMA_READER_ROLE"
+  }
+  grant_braze_gold_ro = {
+    role_name        = "DLCONSUMPTION_GOLD_RO"
+    parent_role_name = "MFSG_BRAZE_READER_ROLE"
+  }
+
+  ########## Warehouse Usage Roles → Functional Roles ##########
+  # XS_BRONZE_USAGE_ROLE → Openflow + DataEng
+  grant_wh_bronze_to_openflow_admin = {
+    role_name        = "XS_BRONZE_USAGE_ROLE"
+    parent_role_name = "MFSG_OPENFLOW_ADMIN"
+  }
+  grant_wh_bronze_to_openflow_dev = {
+    role_name        = "XS_BRONZE_USAGE_ROLE"
+    parent_role_name = "MFSG_OPENFLOW_DEVELOPER"
+  }
+  grant_wh_bronze_to_openflow_mon = {
+    role_name        = "XS_BRONZE_USAGE_ROLE"
+    parent_role_name = "MFSG_OPENFLOW_MONITOR"
+  }
+  grant_wh_bronze_to_dataeng = {
+    role_name        = "XS_BRONZE_USAGE_ROLE"
+    parent_role_name = "MFSG_DATAENG_DEV"
+  }
+
+  # XS_SILVER_USAGE_ROLE → DataEng + DBT + all team RW + all team RO
+  grant_wh_silver_to_dataeng = {
+    role_name        = "XS_SILVER_USAGE_ROLE"
+    parent_role_name = "MFSG_DATAENG_DEV"
+  }
+  grant_wh_silver_to_dbt_runner = {
+    role_name        = "XS_SILVER_USAGE_ROLE"
+    parent_role_name = "MFSG_DBT_RUNNER"
+  }
+  grant_wh_silver_to_datasci_rw = {
+    role_name        = "XS_SILVER_USAGE_ROLE"
+    parent_role_name = "MFSG_DATASCI_ROLE_RW"
+  }
+  grant_wh_silver_to_creditrisk_rw = {
+    role_name        = "XS_SILVER_USAGE_ROLE"
+    parent_role_name = "MFSG_CREDITRISK_ROLE_RW"
+  }
+  grant_wh_silver_to_fraud_rw = {
+    role_name        = "XS_SILVER_USAGE_ROLE"
+    parent_role_name = "MFSG_FRAUD_ROLE_RW"
+  }
+  grant_wh_silver_to_analytics_rw = {
+    role_name        = "XS_SILVER_USAGE_ROLE"
+    parent_role_name = "MFSG_ANALYTICS_ROLE_RW"
+  }
+  grant_wh_silver_to_collection_rw = {
+    role_name        = "XS_SILVER_USAGE_ROLE"
+    parent_role_name = "MFSG_COLLECTION_ROLE_RW"
+  }
+  grant_wh_silver_to_allowfor_rw = {
+    role_name        = "XS_SILVER_USAGE_ROLE"
+    parent_role_name = "MFSG_ALLOWFOR_ROLE_RW"
+  }
+  grant_wh_silver_to_it_core_rw = {
+    role_name        = "XS_SILVER_USAGE_ROLE"
+    parent_role_name = "MFSG_IT_CORE_ROLE_RW"
+  }
+  grant_wh_silver_to_datasci_ro = {
+    role_name        = "XS_SILVER_USAGE_ROLE"
+    parent_role_name = "MFSG_DATASCI_ROLE_RO"
+  }
+  grant_wh_silver_to_creditrisk_ro = {
+    role_name        = "XS_SILVER_USAGE_ROLE"
+    parent_role_name = "MFSG_CREDITRISK_ROLE_RO"
+  }
+  grant_wh_silver_to_fraud_ro = {
+    role_name        = "XS_SILVER_USAGE_ROLE"
+    parent_role_name = "MFSG_FRAUD_ROLE_RO"
+  }
+  grant_wh_silver_to_analytics_ro = {
+    role_name        = "XS_SILVER_USAGE_ROLE"
+    parent_role_name = "MFSG_ANALYTICS_ROLE_RO"
+  }
+  grant_wh_silver_to_collection_ro = {
+    role_name        = "XS_SILVER_USAGE_ROLE"
+    parent_role_name = "MFSG_COLLECTION_ROLE_RO"
+  }
+  grant_wh_silver_to_allowfor_ro = {
+    role_name        = "XS_SILVER_USAGE_ROLE"
+    parent_role_name = "MFSG_ALLOWFOR_ROLE_RO"
+  }
+  grant_wh_silver_to_it_core_ro = {
+    role_name        = "XS_SILVER_USAGE_ROLE"
+    parent_role_name = "MFSG_IT_CORE_ROLE_RO"
+  }
+
+  # XS_GOLD_USAGE_ROLE → DataEng + DBT + team RW (datasci, creditrisk) + all team RO
+  grant_wh_gold_to_dataeng = {
+    role_name        = "XS_GOLD_USAGE_ROLE"
+    parent_role_name = "MFSG_DATAENG_DEV"
+  }
+  grant_wh_gold_to_dbt_runner = {
+    role_name        = "XS_GOLD_USAGE_ROLE"
+    parent_role_name = "MFSG_DBT_RUNNER"
+  }
+  grant_wh_gold_to_datasci_rw = {
+    role_name        = "XS_GOLD_USAGE_ROLE"
+    parent_role_name = "MFSG_DATASCI_ROLE_RW"
+  }
+  grant_wh_gold_to_creditrisk_rw = {
+    role_name        = "XS_GOLD_USAGE_ROLE"
+    parent_role_name = "MFSG_CREDITRISK_ROLE_RW"
+  }
+  grant_wh_gold_to_datasci_ro = {
+    role_name        = "XS_GOLD_USAGE_ROLE"
+    parent_role_name = "MFSG_DATASCI_ROLE_RO"
+  }
+  grant_wh_gold_to_creditrisk_ro = {
+    role_name        = "XS_GOLD_USAGE_ROLE"
+    parent_role_name = "MFSG_CREDITRISK_ROLE_RO"
+  }
+  grant_wh_gold_to_fraud_ro = {
+    role_name        = "XS_GOLD_USAGE_ROLE"
+    parent_role_name = "MFSG_FRAUD_ROLE_RO"
+  }
+  grant_wh_gold_to_analytics_ro = {
+    role_name        = "XS_GOLD_USAGE_ROLE"
+    parent_role_name = "MFSG_ANALYTICS_ROLE_RO"
+  }
+  grant_wh_gold_to_collection_ro = {
+    role_name        = "XS_GOLD_USAGE_ROLE"
+    parent_role_name = "MFSG_COLLECTION_ROLE_RO"
+  }
+  grant_wh_gold_to_allowfor_ro = {
+    role_name        = "XS_GOLD_USAGE_ROLE"
+    parent_role_name = "MFSG_ALLOWFOR_ROLE_RO"
+  }
+  grant_wh_gold_to_it_core_ro = {
+    role_name        = "XS_GOLD_USAGE_ROLE"
+    parent_role_name = "MFSG_IT_CORE_ROLE_RO"
+  }
+
+  # XS_SIGMA_USAGE_ROLE → Sigma reader
+  grant_wh_sigma_to_sigma_reader = {
+    role_name        = "XS_SIGMA_USAGE_ROLE"
+    parent_role_name = "MFSG_SIGMA_READER_ROLE"
+  }
+
+  # XS_BRAZE_USAGE_ROLE → Braze reader
+  grant_wh_braze_to_braze_reader = {
+    role_name        = "XS_BRAZE_USAGE_ROLE"
+    parent_role_name = "MFSG_BRAZE_READER_ROLE"
+  }
+}
+
 ########## User Role Assignments ############
 user_role_assignments = {
 
-  "ganesh.subramaniam@brainridgeconsulting.com" = [
+  "GSUBRAMA" = [
     "MFSG_OPENFLOW_ADMIN",
     "MFSG_OPENFLOW_DEVELOPER"
   ]
