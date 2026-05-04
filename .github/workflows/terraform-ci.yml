@@ -1,16 +1,19 @@
-name: "Terraform CI — DEV"
+name: "Terraform CI — DEV (DISABLED)"
 
 on:
-  pull_request:
-    branches: [Dev]
-    paths:
-      - "environments/dev/**"
-      - "modules/**"
-  push:
-    branches: [Dev]
-    paths:
-      - "environments/dev/**"
-      - "modules/**"
+  workflow_dispatch: # Manual trigger only — re-enable pull_request/push when ready
+
+# on:
+#   pull_request:
+#     branches: [Dev]
+#     paths:
+#       - "environments/dev/**"
+#       - "modules/**"
+#   push:
+#     branches: [Dev]
+#     paths:
+#       - "environments/dev/**"
+#       - "modules/**"
 
 permissions:
   contents: read
