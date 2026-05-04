@@ -1,16 +1,19 @@
-name: "Terraform CI — QA"
+name: "Terraform CI — QA (DISABLED)"
 
 on:
-  pull_request:
-    branches: [Dev]
-    paths:
-      - "environments/qa/**"
-      - "modules/**"
-  push:
-    branches: [Dev]
-    paths:
-      - "environments/qa/**"
-      - "modules/**"
+  workflow_dispatch: # Manual trigger only — re-enable pull_request/push when QA account is configured
+
+# on:
+#   pull_request:
+#     branches: [Dev]
+#     paths:
+#       - "environments/qa/**"
+#       - "modules/**"
+#   push:
+#     branches: [Dev]
+#     paths:
+#       - "environments/qa/**"
+#       - "modules/**"
 
 permissions:
   contents: read
