@@ -10,9 +10,9 @@ terraform {
 }
 
 provider "snowflake" {
-  organization_name        = "SPYPLHP"                       # TODO: Update if QA uses a different org
-  account_name             = "REPLACE_WITH_QA_ACCOUNT"        # TODO: Replace with QA account name
-  user                     = "REPLACE_WITH_QA_USER"           # TODO: Replace with QA service user
+  organization_name        = "SPYPLHP"                 # TODO: Update if QA uses a different org
+  account_name             = "REPLACE_WITH_QA_ACCOUNT" # TODO: Replace with QA account name
+  user                     = "REPLACE_WITH_QA_USER"    # TODO: Replace with QA service user
   private_key              = file("rsa_key.p8")
   authenticator            = "SNOWFLAKE_JWT"
   role                     = "ACCOUNTADMIN"

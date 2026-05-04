@@ -320,22 +320,22 @@ custom_role_privilege_grants = {
   grant_gold_db_tables_ro = {
     account_role_name = "DLCONSUMPTION_GOLD_RO"
     privileges        = ["SELECT"]
-    on_schema_object = { all = { object_type_plural = "TABLES", in_database = "DLCONSUMPTION_GOLD" } }
+    on_schema_object  = { all = { object_type_plural = "TABLES", in_database = "DLCONSUMPTION_GOLD" } }
   }
   grant_gold_db_future_tables_ro = {
     account_role_name = "DLCONSUMPTION_GOLD_RO"
     privileges        = ["SELECT"]
-    on_schema_object = { future = { object_type_plural = "TABLES", in_database = "DLCONSUMPTION_GOLD" } }
+    on_schema_object  = { future = { object_type_plural = "TABLES", in_database = "DLCONSUMPTION_GOLD" } }
   }
   grant_gold_db_tables_rw = {
     account_role_name = "DLCONSUMPTION_GOLD_RW"
     privileges        = ["SELECT", "INSERT", "UPDATE", "DELETE", "TRUNCATE", "REFERENCES"]
-    on_schema_object = { all = { object_type_plural = "TABLES", in_database = "DLCONSUMPTION_GOLD" } }
+    on_schema_object  = { all = { object_type_plural = "TABLES", in_database = "DLCONSUMPTION_GOLD" } }
   }
   grant_gold_db_future_tables_rw = {
     account_role_name = "DLCONSUMPTION_GOLD_RW"
     privileges        = ["SELECT", "INSERT", "UPDATE", "DELETE", "TRUNCATE", "REFERENCES"]
-    on_schema_object = { future = { object_type_plural = "TABLES", in_database = "DLCONSUMPTION_GOLD" } }
+    on_schema_object  = { future = { object_type_plural = "TABLES", in_database = "DLCONSUMPTION_GOLD" } }
   }
 
   ######################################################################
@@ -364,22 +364,22 @@ custom_role_privilege_grants = {
   grant_admin_db_tables_ro = {
     account_role_name = "ADMIN_INTEGRATION_DB_ROLE_RO"
     privileges        = ["SELECT"]
-    on_schema_object = { all = { object_type_plural = "TABLES", in_database = "ADMIN_INTEGRATION_DB" } }
+    on_schema_object  = { all = { object_type_plural = "TABLES", in_database = "ADMIN_INTEGRATION_DB" } }
   }
   grant_admin_db_future_tables_ro = {
     account_role_name = "ADMIN_INTEGRATION_DB_ROLE_RO"
     privileges        = ["SELECT"]
-    on_schema_object = { future = { object_type_plural = "TABLES", in_database = "ADMIN_INTEGRATION_DB" } }
+    on_schema_object  = { future = { object_type_plural = "TABLES", in_database = "ADMIN_INTEGRATION_DB" } }
   }
   grant_admin_db_tables_rw = {
     account_role_name = "ADMIN_INTEGRATION_DB_ROLE_RW"
     privileges        = ["SELECT", "INSERT", "UPDATE", "DELETE", "TRUNCATE", "REFERENCES"]
-    on_schema_object = { all = { object_type_plural = "TABLES", in_database = "ADMIN_INTEGRATION_DB" } }
+    on_schema_object  = { all = { object_type_plural = "TABLES", in_database = "ADMIN_INTEGRATION_DB" } }
   }
   grant_admin_db_future_tables_rw = {
     account_role_name = "ADMIN_INTEGRATION_DB_ROLE_RW"
     privileges        = ["SELECT", "INSERT", "UPDATE", "DELETE", "TRUNCATE", "REFERENCES"]
-    on_schema_object = { future = { object_type_plural = "TABLES", in_database = "ADMIN_INTEGRATION_DB" } }
+    on_schema_object  = { future = { object_type_plural = "TABLES", in_database = "ADMIN_INTEGRATION_DB" } }
   }
 }
 
