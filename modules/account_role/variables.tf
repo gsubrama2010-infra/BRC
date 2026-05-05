@@ -1,7 +1,7 @@
 variable "account_roles" {
   type = map(object({
-    name    = string
-    comment = optional(string, null)
+    name             = string
+    comment          = optional(string, null)
     parent_role_name = optional(string)
   }))
 }
@@ -43,7 +43,16 @@ variable "role_privilege_grants" {
   default = {}
 }
 
+variable "role_to_role_grants" {
+  description = "Map of role-to-role grants: grant role_name to parent_role_name"
+  type = map(object({
+    role_name        = string
+    parent_role_name = string
+  }))
+  default = {}
+}
+
 variable "user_role_assignments" {
-  type = map(list(string))
+  type    = map(list(string))
   default = {}
 }

@@ -1,0 +1,1805 @@
+warehouses = {
+  moneymart_wh_bronze = {
+    name              = "XS_BRONZE"
+    warehouse_size    = "XSMALL"
+    min_cluster_count = 1
+    max_cluster_count = 4
+    auto_suspend      = 60
+    auto_resume       = true
+    comment           = "This warehouse is being used by Dev env for Bronze warehouse"
+  }
+
+  moneymart_wh_silver = {
+    name              = "XS_SILVER"
+    warehouse_size    = "XSMALL"
+    min_cluster_count = 1
+    max_cluster_count = 4
+    auto_suspend      = 60
+    auto_resume       = true
+    comment           = "This warehouse is being used by Dev env for Silver warehouse"
+  }
+
+  moneymart_wh_gold = {
+    name              = "XS_GOLD"
+    warehouse_size    = "XSMALL"
+    min_cluster_count = 1
+    max_cluster_count = 4
+    auto_suspend      = 60
+    auto_resume       = true
+    comment           = "This warehouse is being used by Dev env for Gold warehouse"
+  }
+
+  moneymart_wh_sigma = {
+    name              = "XS_SIGMA"
+    warehouse_size    = "XSMALL"
+    min_cluster_count = 1
+    max_cluster_count = 4
+    auto_suspend      = 60
+    auto_resume       = true
+    comment           = "This warehouse is being used by Dev env for Sigma warehouse"
+  }
+
+  moneymart_wh_braze = {
+    name              = "XS_BRAZE"
+    warehouse_size    = "XSMALL"
+    min_cluster_count = 1
+    max_cluster_count = 4
+    auto_suspend      = 60
+    auto_resume       = true
+    comment           = "This warehouse is being used by Dev env for Braze warehouse"
+  }
+}
+
+databases = {
+  moneymart_db_bronze = {
+    name         = "DLSTAGE_BRONZE"
+    comment      = "This database is being used by Dev env for Bronze"
+    is_transient = false
+  }
+
+  moneymart_db_silver = {
+    name         = "DLSNAPSHOT_SILVER"
+    comment      = "This database is being used by Dev env for Silver"
+    is_transient = false
+  }
+
+  moneymart_db_gold = {
+    name         = "DLCONSUMPTION_GOLD"
+    comment      = "This database is being used by Dev env for Gold"
+    is_transient = false
+  }
+
+  moneymart_db_admin = {
+    name         = "ADMIN_INTEGRATION_DB"
+    comment      = "Admin database for network rules, secrets, and integration objects"
+    is_transient = false
+  }
+}
+
+custom_account_roles = {
+
+  ########## Team Functional Roles (RW) ##########
+  account_role_mfsg_datasci_rw = {
+    name             = "MFSG_DATASCI_ROLE_RW"
+    parent_role_name = "SYSADMIN"
+    comment          = "RW functional role for Data Science team"
+  }
+  account_role_mfsg_creditrisk_rw = {
+    name             = "MFSG_CREDITRISK_ROLE_RW"
+    parent_role_name = "SYSADMIN"
+    comment          = "RW functional role for Credit Risk team"
+  }
+  account_role_mfsg_fraud_rw = {
+    name             = "MFSG_FRAUD_ROLE_RW"
+    parent_role_name = "SYSADMIN"
+    comment          = "RW functional role for Fraud team"
+  }
+  account_role_mfsg_analytics_rw = {
+    name             = "MFSG_ANALYTICS_ROLE_RW"
+    parent_role_name = "SYSADMIN"
+    comment          = "RW functional role for Analytics team"
+  }
+  account_role_mfsg_collection_rw = {
+    name             = "MFSG_COLLECTION_ROLE_RW"
+    parent_role_name = "SYSADMIN"
+    comment          = "RW functional role for Collection team"
+  }
+  account_role_mfsg_allowfor_rw = {
+    name             = "MFSG_ALLOWFOR_ROLE_RW"
+    parent_role_name = "SYSADMIN"
+    comment          = "RW functional role for Allowance & Forecasting team"
+  }
+  account_role_mfsg_it_core_rw = {
+    name             = "MFSG_IT_CORE_ROLE_RW"
+    parent_role_name = "SYSADMIN"
+    comment          = "RW functional role for IT Core team"
+  }
+
+  ########## Team Functional Roles (RO) ##########
+  account_role_mfsg_datasci_ro = {
+    name             = "MFSG_DATASCI_ROLE_RO"
+    parent_role_name = "SYSADMIN"
+    comment          = "RO functional role for Data Science team"
+  }
+  account_role_mfsg_creditrisk_ro = {
+    name             = "MFSG_CREDITRISK_ROLE_RO"
+    parent_role_name = "SYSADMIN"
+    comment          = "RO functional role for Credit Risk team"
+  }
+  account_role_mfsg_fraud_ro = {
+    name             = "MFSG_FRAUD_ROLE_RO"
+    parent_role_name = "SYSADMIN"
+    comment          = "RO functional role for Fraud team"
+  }
+  account_role_mfsg_analytics_ro = {
+    name             = "MFSG_ANALYTICS_ROLE_RO"
+    parent_role_name = "SYSADMIN"
+    comment          = "RO functional role for Analytics team"
+  }
+  account_role_mfsg_collection_ro = {
+    name             = "MFSG_COLLECTION_ROLE_RO"
+    parent_role_name = "SYSADMIN"
+    comment          = "RO functional role for Collection team"
+  }
+  account_role_mfsg_allowfor_ro = {
+    name             = "MFSG_ALLOWFOR_ROLE_RO"
+    parent_role_name = "SYSADMIN"
+    comment          = "RO functional role for Allowance & Forecasting team"
+  }
+  account_role_mfsg_it_core_ro = {
+    name             = "MFSG_IT_CORE_ROLE_RO"
+    parent_role_name = "SYSADMIN"
+    comment          = "RO functional role for IT Core team"
+  }
+
+  ########## Sandbox Access Roles ##########
+  account_role_dldatascience_sandbox_ro = {
+    name             = "DLDATASCIENCE_SANDBOX_RO"
+    parent_role_name = "SYSADMIN"
+    comment          = "RO access role for Data Science sandbox schema"
+  }
+  account_role_dldatascience_sandbox_rw = {
+    name             = "DLDATASCIENCE_SANDBOX_RW"
+    parent_role_name = "SYSADMIN"
+    comment          = "RW access role for Data Science sandbox schema"
+  }
+  account_role_dlcreditrisk_sandbox_ro = {
+    name             = "DLCREDITRISK_SANDBOX_RO"
+    parent_role_name = "SYSADMIN"
+    comment          = "RO access role for Credit Risk sandbox schema"
+  }
+  account_role_dlcreditrisk_sandbox_rw = {
+    name             = "DLCREDITRISK_SANDBOX_RW"
+    parent_role_name = "SYSADMIN"
+    comment          = "RW access role for Credit Risk sandbox schema"
+  }
+  account_role_dlfraud_sandbox_ro = {
+    name             = "DLFRAUD_SANDBOX_RO"
+    parent_role_name = "SYSADMIN"
+    comment          = "RO access role for Fraud sandbox schema"
+  }
+  account_role_dlfraud_sandbox_rw = {
+    name             = "DLFRAUD_SANDBOX_RW"
+    parent_role_name = "SYSADMIN"
+    comment          = "RW access role for Fraud sandbox schema"
+  }
+  account_role_dlanalytics_sandbox_ro = {
+    name             = "DLANALYTICS_SANDBOX_RO"
+    parent_role_name = "SYSADMIN"
+    comment          = "RO access role for Analytics sandbox schema"
+  }
+  account_role_dlanalytics_sandbox_rw = {
+    name             = "DLANALYTICS_SANDBOX_RW"
+    parent_role_name = "SYSADMIN"
+    comment          = "RW access role for Analytics sandbox schema"
+  }
+  account_role_dlcollection_sandbox_ro = {
+    name             = "DLCOLLECTION_SANDBOX_RO"
+    parent_role_name = "SYSADMIN"
+    comment          = "RO access role for Collection sandbox schema"
+  }
+  account_role_dlcollection_sandbox_rw = {
+    name             = "DLCOLLECTION_SANDBOX_RW"
+    parent_role_name = "SYSADMIN"
+    comment          = "RW access role for Collection sandbox schema"
+  }
+  account_role_dlallowance_sandbox_ro = {
+    name             = "DLALLOWANCE_SANDBOX_RO"
+    parent_role_name = "SYSADMIN"
+    comment          = "RO access role for Allowance sandbox schema"
+  }
+  account_role_dlallowance_sandbox_rw = {
+    name             = "DLALLOWANCE_SANDBOX_RW"
+    parent_role_name = "SYSADMIN"
+    comment          = "RW access role for Allowance sandbox schema"
+  }
+  account_role_dlcore_sandbox_ro = {
+    name             = "DLCORE_SANDBOX_RO"
+    parent_role_name = "SYSADMIN"
+    comment          = "RO access role for Core sandbox schema"
+  }
+  account_role_dlcore_sandbox_rw = {
+    name             = "DLCORE_SANDBOX_RW"
+    parent_role_name = "SYSADMIN"
+    comment          = "RW access role for Core sandbox schema"
+  }
+
+  ########## Data Engineering Role ##########
+  account_role_mfsg_dataeng_dev = {
+    name             = "MFSG_DATAENG_DEV"
+    parent_role_name = "SYSADMIN"
+    comment          = "Data Engineering dev functional role"
+  }
+
+  ########## Openflow Roles ##########
+  account_role_mfsg_openflow_admin = {
+    name             = "MFSG_OPENFLOW_ADMIN"
+    parent_role_name = "SYSADMIN"
+    comment          = "Openflow Admin role"
+  }
+  account_role_mfsg_openflow_developer = {
+    name             = "MFSG_OPENFLOW_DEVELOPER"
+    parent_role_name = "MFSG_OPENFLOW_ADMIN"
+    comment          = "Openflow Developer role"
+  }
+  account_role_mfsg_openflow_monitor = {
+    name             = "MFSG_OPENFLOW_MONITOR"
+    parent_role_name = "MFSG_OPENFLOW_DEVELOPER"
+    comment          = "Openflow Monitor role"
+  }
+
+  ########## DBT Role ##########
+  account_role_mfsg_dbt_runner = {
+    name             = "MFSG_DBT_RUNNER"
+    parent_role_name = "SYSADMIN"
+    comment          = "DBT Runner service role"
+  }
+
+  ########## Terraform Role ##########
+  account_role_mfsg_terraform_admin = {
+    name             = "MFSG_TERRAFORM_ADMIN"
+    parent_role_name = "SYSADMIN"
+    comment          = "Terraform admin service role"
+  }
+
+  ########## PII Role ##########
+  account_role_mask_pii_standard = {
+    name             = "MASK_PII_STANDARD"
+    parent_role_name = "SYSADMIN"
+    comment          = "PII masking standard role"
+  }
+
+  ########## Sigma and Braze Reporting Roles ##########
+  account_role_mfsg_sigma_reader = {
+    name             = "MFSG_SIGMA_READER_ROLE"
+    parent_role_name = "SYSADMIN"
+    comment          = "Sigma reporting reader role"
+  }
+  account_role_mfsg_braze_reader = {
+    name             = "MFSG_BRAZE_READER_ROLE"
+    parent_role_name = "SYSADMIN"
+    comment          = "Braze reporting reader role"
+  }
+
+  ########## Admin DB Access Roles ##########
+  account_role_admin_integration_db_ro = {
+    name             = "ADMIN_INTEGRATION_DB_ROLE_RO"
+    parent_role_name = "SYSADMIN"
+    comment          = "RO access role for Admin Integration DB"
+  }
+  account_role_admin_integration_db_rw = {
+    name             = "ADMIN_INTEGRATION_DB_ROLE_RW"
+    parent_role_name = "SYSADMIN"
+    comment          = "RW access role for Admin Integration DB"
+  }
+
+  ########## Gold DB Access Roles (no schemas, so not auto-generated) ##########
+  account_role_dlconsumption_gold_ro = {
+    name             = "DLCONSUMPTION_GOLD_RO"
+    parent_role_name = "SYSADMIN"
+    comment          = "Read-only role for database DLCONSUMPTION_GOLD"
+  }
+  account_role_dlconsumption_gold_rw = {
+    name             = "DLCONSUMPTION_GOLD_RW"
+    parent_role_name = "SYSADMIN"
+    comment          = "Read-write role for database DLCONSUMPTION_GOLD"
+  }
+
+  ########## Warehouse Usage Roles ##########
+  account_role_xs_bronze_usage = {
+    name             = "XS_BRONZE_USAGE_ROLE"
+    parent_role_name = "SYSADMIN"
+    comment          = "Warehouse usage role for XS_BRONZE"
+  }
+  account_role_xs_silver_usage = {
+    name             = "XS_SILVER_USAGE_ROLE"
+    parent_role_name = "SYSADMIN"
+    comment          = "Warehouse usage role for XS_SILVER"
+  }
+  account_role_xs_gold_usage = {
+    name             = "XS_GOLD_USAGE_ROLE"
+    parent_role_name = "SYSADMIN"
+    comment          = "Warehouse usage role for XS_GOLD"
+  }
+  account_role_xs_sigma_usage = {
+    name             = "XS_SIGMA_USAGE_ROLE"
+    parent_role_name = "SYSADMIN"
+    comment          = "Warehouse usage role for XS_SIGMA"
+  }
+  account_role_xs_braze_usage = {
+    name             = "XS_BRAZE_USAGE_ROLE"
+    parent_role_name = "SYSADMIN"
+    comment          = "Warehouse usage role for XS_BRAZE"
+  }
+
+}
+
+custom_role_privilege_grants = {
+
+  ######################################################################
+  # WAREHOUSE USAGE GRANTS (warehouse → warehouse usage role)
+  ######################################################################
+  grant_wh_usage_xs_bronze = {
+    account_role_name = "XS_BRONZE_USAGE_ROLE"
+    privileges        = ["USAGE"]
+    on_account_object = {
+      object_type = "WAREHOUSE"
+      object_name = "XS_BRONZE"
+    }
+  }
+  grant_wh_usage_xs_silver = {
+    account_role_name = "XS_SILVER_USAGE_ROLE"
+    privileges        = ["USAGE"]
+    on_account_object = {
+      object_type = "WAREHOUSE"
+      object_name = "XS_SILVER"
+    }
+  }
+  grant_wh_usage_xs_gold = {
+    account_role_name = "XS_GOLD_USAGE_ROLE"
+    privileges        = ["USAGE"]
+    on_account_object = {
+      object_type = "WAREHOUSE"
+      object_name = "XS_GOLD"
+    }
+  }
+  grant_wh_usage_xs_sigma = {
+    account_role_name = "XS_SIGMA_USAGE_ROLE"
+    privileges        = ["USAGE"]
+    on_account_object = {
+      object_type = "WAREHOUSE"
+      object_name = "XS_SIGMA"
+    }
+  }
+  grant_wh_usage_xs_braze = {
+    account_role_name = "XS_BRAZE_USAGE_ROLE"
+    privileges        = ["USAGE"]
+    on_account_object = {
+      object_type = "WAREHOUSE"
+      object_name = "XS_BRAZE"
+    }
+  }
+
+  ######################################################################
+  # DLCONSUMPTION_GOLD DB GRANTS (no schemas, so not auto-generated)
+  ######################################################################
+  grant_gold_db_usage_ro = {
+    account_role_name = "DLCONSUMPTION_GOLD_RO"
+    privileges        = ["USAGE"]
+    on_account_object = {
+      object_type = "DATABASE"
+      object_name = "DLCONSUMPTION_GOLD"
+    }
+  }
+  grant_gold_db_usage_rw = {
+    account_role_name = "DLCONSUMPTION_GOLD_RW"
+    privileges        = ["USAGE"]
+    on_account_object = {
+      object_type = "DATABASE"
+      object_name = "DLCONSUMPTION_GOLD"
+    }
+  }
+  grant_gold_db_tables_ro = {
+    account_role_name = "DLCONSUMPTION_GOLD_RO"
+    privileges        = ["SELECT"]
+    on_schema_object = {
+      all = {
+        object_type_plural = "TABLES"
+        in_database        = "DLCONSUMPTION_GOLD"
+      }
+    }
+  }
+  grant_gold_db_future_tables_ro = {
+    account_role_name = "DLCONSUMPTION_GOLD_RO"
+    privileges        = ["SELECT"]
+    on_schema_object = {
+      future = {
+        object_type_plural = "TABLES"
+        in_database        = "DLCONSUMPTION_GOLD"
+      }
+    }
+  }
+  grant_gold_db_tables_rw = {
+    account_role_name = "DLCONSUMPTION_GOLD_RW"
+    privileges        = ["SELECT", "INSERT", "UPDATE", "DELETE", "TRUNCATE", "REFERENCES"]
+    on_schema_object = {
+      all = {
+        object_type_plural = "TABLES"
+        in_database        = "DLCONSUMPTION_GOLD"
+      }
+    }
+  }
+  grant_gold_db_future_tables_rw = {
+    account_role_name = "DLCONSUMPTION_GOLD_RW"
+    privileges        = ["SELECT", "INSERT", "UPDATE", "DELETE", "TRUNCATE", "REFERENCES"]
+    on_schema_object = {
+      future = {
+        object_type_plural = "TABLES"
+        in_database        = "DLCONSUMPTION_GOLD"
+      }
+    }
+  }
+
+  ######################################################################
+  # ADMIN_INTEGRATION_DB GRANTS
+  ######################################################################
+  grant_admin_db_usage_ro = {
+    account_role_name = "ADMIN_INTEGRATION_DB_ROLE_RO"
+    privileges        = ["USAGE"]
+    on_account_object = {
+      object_type = "DATABASE"
+      object_name = "ADMIN_INTEGRATION_DB"
+    }
+  }
+  grant_admin_db_usage_rw = {
+    account_role_name = "ADMIN_INTEGRATION_DB_ROLE_RW"
+    privileges        = ["USAGE"]
+    on_account_object = {
+      object_type = "DATABASE"
+      object_name = "ADMIN_INTEGRATION_DB"
+    }
+  }
+  grant_admin_db_schema_ro = {
+    account_role_name = "ADMIN_INTEGRATION_DB_ROLE_RO"
+    privileges        = ["USAGE"]
+    on_schema = {
+      schema_name = "ADMIN_INTEGRATION_DB.NETWORKING"
+    }
+  }
+  grant_admin_db_schema_rw = {
+    account_role_name = "ADMIN_INTEGRATION_DB_ROLE_RW"
+    privileges        = ["USAGE", "CREATE TABLE", "CREATE VIEW", "CREATE STAGE", "CREATE FILE FORMAT", "CREATE SEQUENCE", "CREATE FUNCTION", "CREATE PROCEDURE"]
+    on_schema = {
+      schema_name = "ADMIN_INTEGRATION_DB.NETWORKING"
+    }
+  }
+  grant_admin_db_tables_ro = {
+    account_role_name = "ADMIN_INTEGRATION_DB_ROLE_RO"
+    privileges        = ["SELECT"]
+    on_schema_object = {
+      all = {
+        object_type_plural = "TABLES"
+        in_database        = "ADMIN_INTEGRATION_DB"
+      }
+    }
+  }
+  grant_admin_db_future_tables_ro = {
+    account_role_name = "ADMIN_INTEGRATION_DB_ROLE_RO"
+    privileges        = ["SELECT"]
+    on_schema_object = {
+      future = {
+        object_type_plural = "TABLES"
+        in_database        = "ADMIN_INTEGRATION_DB"
+      }
+    }
+  }
+  grant_admin_db_tables_rw = {
+    account_role_name = "ADMIN_INTEGRATION_DB_ROLE_RW"
+    privileges        = ["SELECT", "INSERT", "UPDATE", "DELETE", "TRUNCATE", "REFERENCES"]
+    on_schema_object = {
+      all = {
+        object_type_plural = "TABLES"
+        in_database        = "ADMIN_INTEGRATION_DB"
+      }
+    }
+  }
+  grant_admin_db_future_tables_rw = {
+    account_role_name = "ADMIN_INTEGRATION_DB_ROLE_RW"
+    privileges        = ["SELECT", "INSERT", "UPDATE", "DELETE", "TRUNCATE", "REFERENCES"]
+    on_schema_object = {
+      future = {
+        object_type_plural = "TABLES"
+        in_database        = "ADMIN_INTEGRATION_DB"
+      }
+    }
+  }
+
+  ######################################################################
+  # SANDBOX SCHEMA GRANTS (RO and RW per sandbox)
+  ######################################################################
+  grant_sandbox_datasci_rw = {
+    account_role_name = "DLDATASCIENCE_SANDBOX_RW"
+    privileges        = ["USAGE", "CREATE TABLE", "CREATE VIEW", "CREATE STAGE", "CREATE FILE FORMAT", "CREATE SEQUENCE", "CREATE FUNCTION", "CREATE PROCEDURE"]
+    on_schema = {
+      schema_name = "DLSNAPSHOT_SILVER.DLDATASCIENCE_SANDBOX"
+    }
+  }
+  grant_sandbox_datasci_rw_tables = {
+    account_role_name = "DLDATASCIENCE_SANDBOX_RW"
+    privileges        = ["SELECT", "INSERT", "UPDATE", "DELETE", "TRUNCATE", "REFERENCES"]
+    on_schema_object = {
+      all = {
+        object_type_plural = "TABLES"
+        in_schema          = "DLSNAPSHOT_SILVER.DLDATASCIENCE_SANDBOX"
+      }
+    }
+  }
+  grant_sandbox_datasci_ro = {
+    account_role_name = "DLDATASCIENCE_SANDBOX_RO"
+    privileges        = ["USAGE"]
+    on_schema = {
+      schema_name = "DLSNAPSHOT_SILVER.DLDATASCIENCE_SANDBOX"
+    }
+  }
+  grant_sandbox_datasci_ro_tables = {
+    account_role_name = "DLDATASCIENCE_SANDBOX_RO"
+    privileges        = ["SELECT"]
+    on_schema_object = {
+      all = {
+        object_type_plural = "TABLES"
+        in_schema          = "DLSNAPSHOT_SILVER.DLDATASCIENCE_SANDBOX"
+      }
+    }
+  }
+
+  grant_sandbox_creditrisk_rw = {
+    account_role_name = "DLCREDITRISK_SANDBOX_RW"
+    privileges        = ["USAGE", "CREATE TABLE", "CREATE VIEW", "CREATE STAGE", "CREATE FILE FORMAT", "CREATE SEQUENCE", "CREATE FUNCTION", "CREATE PROCEDURE"]
+    on_schema = {
+      schema_name = "DLSNAPSHOT_SILVER.DLCREDITRISK_SANDBOX"
+    }
+  }
+  grant_sandbox_creditrisk_rw_tables = {
+    account_role_name = "DLCREDITRISK_SANDBOX_RW"
+    privileges        = ["SELECT", "INSERT", "UPDATE", "DELETE", "TRUNCATE", "REFERENCES"]
+    on_schema_object = {
+      all = {
+        object_type_plural = "TABLES"
+        in_schema          = "DLSNAPSHOT_SILVER.DLCREDITRISK_SANDBOX"
+      }
+    }
+  }
+  grant_sandbox_creditrisk_ro = {
+    account_role_name = "DLCREDITRISK_SANDBOX_RO"
+    privileges        = ["USAGE"]
+    on_schema = {
+      schema_name = "DLSNAPSHOT_SILVER.DLCREDITRISK_SANDBOX"
+    }
+  }
+  grant_sandbox_creditrisk_ro_tables = {
+    account_role_name = "DLCREDITRISK_SANDBOX_RO"
+    privileges        = ["SELECT"]
+    on_schema_object = {
+      all = {
+        object_type_plural = "TABLES"
+        in_schema          = "DLSNAPSHOT_SILVER.DLCREDITRISK_SANDBOX"
+      }
+    }
+  }
+
+  grant_sandbox_fraud_rw = {
+    account_role_name = "DLFRAUD_SANDBOX_RW"
+    privileges        = ["USAGE", "CREATE TABLE", "CREATE VIEW", "CREATE STAGE", "CREATE FILE FORMAT", "CREATE SEQUENCE", "CREATE FUNCTION", "CREATE PROCEDURE"]
+    on_schema = {
+      schema_name = "DLSNAPSHOT_SILVER.DLFRAUD_SANDBOX"
+    }
+  }
+  grant_sandbox_fraud_rw_tables = {
+    account_role_name = "DLFRAUD_SANDBOX_RW"
+    privileges        = ["SELECT", "INSERT", "UPDATE", "DELETE", "TRUNCATE", "REFERENCES"]
+    on_schema_object = {
+      all = {
+        object_type_plural = "TABLES"
+        in_schema          = "DLSNAPSHOT_SILVER.DLFRAUD_SANDBOX"
+      }
+    }
+  }
+  grant_sandbox_fraud_ro = {
+    account_role_name = "DLFRAUD_SANDBOX_RO"
+    privileges        = ["USAGE"]
+    on_schema = {
+      schema_name = "DLSNAPSHOT_SILVER.DLFRAUD_SANDBOX"
+    }
+  }
+  grant_sandbox_fraud_ro_tables = {
+    account_role_name = "DLFRAUD_SANDBOX_RO"
+    privileges        = ["SELECT"]
+    on_schema_object = {
+      all = {
+        object_type_plural = "TABLES"
+        in_schema          = "DLSNAPSHOT_SILVER.DLFRAUD_SANDBOX"
+      }
+    }
+  }
+
+  grant_sandbox_analytics_rw = {
+    account_role_name = "DLANALYTICS_SANDBOX_RW"
+    privileges        = ["USAGE", "CREATE TABLE", "CREATE VIEW", "CREATE STAGE", "CREATE FILE FORMAT", "CREATE SEQUENCE", "CREATE FUNCTION", "CREATE PROCEDURE"]
+    on_schema = {
+      schema_name = "DLSNAPSHOT_SILVER.DLANALYTICS_SANDBOX"
+    }
+  }
+  grant_sandbox_analytics_rw_tables = {
+    account_role_name = "DLANALYTICS_SANDBOX_RW"
+    privileges        = ["SELECT", "INSERT", "UPDATE", "DELETE", "TRUNCATE", "REFERENCES"]
+    on_schema_object = {
+      all = {
+        object_type_plural = "TABLES"
+        in_schema          = "DLSNAPSHOT_SILVER.DLANALYTICS_SANDBOX"
+      }
+    }
+  }
+  grant_sandbox_analytics_ro = {
+    account_role_name = "DLANALYTICS_SANDBOX_RO"
+    privileges        = ["USAGE"]
+    on_schema = {
+      schema_name = "DLSNAPSHOT_SILVER.DLANALYTICS_SANDBOX"
+    }
+  }
+  grant_sandbox_analytics_ro_tables = {
+    account_role_name = "DLANALYTICS_SANDBOX_RO"
+    privileges        = ["SELECT"]
+    on_schema_object = {
+      all = {
+        object_type_plural = "TABLES"
+        in_schema          = "DLSNAPSHOT_SILVER.DLANALYTICS_SANDBOX"
+      }
+    }
+  }
+
+  grant_sandbox_collection_rw = {
+    account_role_name = "DLCOLLECTION_SANDBOX_RW"
+    privileges        = ["USAGE", "CREATE TABLE", "CREATE VIEW", "CREATE STAGE", "CREATE FILE FORMAT", "CREATE SEQUENCE", "CREATE FUNCTION", "CREATE PROCEDURE"]
+    on_schema = {
+      schema_name = "DLSNAPSHOT_SILVER.DLCOLLECTION_SANDBOX"
+    }
+  }
+  grant_sandbox_collection_rw_tables = {
+    account_role_name = "DLCOLLECTION_SANDBOX_RW"
+    privileges        = ["SELECT", "INSERT", "UPDATE", "DELETE", "TRUNCATE", "REFERENCES"]
+    on_schema_object = {
+      all = {
+        object_type_plural = "TABLES"
+        in_schema          = "DLSNAPSHOT_SILVER.DLCOLLECTION_SANDBOX"
+      }
+    }
+  }
+  grant_sandbox_collection_ro = {
+    account_role_name = "DLCOLLECTION_SANDBOX_RO"
+    privileges        = ["USAGE"]
+    on_schema = {
+      schema_name = "DLSNAPSHOT_SILVER.DLCOLLECTION_SANDBOX"
+    }
+  }
+  grant_sandbox_collection_ro_tables = {
+    account_role_name = "DLCOLLECTION_SANDBOX_RO"
+    privileges        = ["SELECT"]
+    on_schema_object = {
+      all = {
+        object_type_plural = "TABLES"
+        in_schema          = "DLSNAPSHOT_SILVER.DLCOLLECTION_SANDBOX"
+      }
+    }
+  }
+
+  grant_sandbox_allowance_rw = {
+    account_role_name = "DLALLOWANCE_SANDBOX_RW"
+    privileges        = ["USAGE", "CREATE TABLE", "CREATE VIEW", "CREATE STAGE", "CREATE FILE FORMAT", "CREATE SEQUENCE", "CREATE FUNCTION", "CREATE PROCEDURE"]
+    on_schema = {
+      schema_name = "DLSNAPSHOT_SILVER.DLALLOWANCE_SANDBOX"
+    }
+  }
+  grant_sandbox_allowance_rw_tables = {
+    account_role_name = "DLALLOWANCE_SANDBOX_RW"
+    privileges        = ["SELECT", "INSERT", "UPDATE", "DELETE", "TRUNCATE", "REFERENCES"]
+    on_schema_object = {
+      all = {
+        object_type_plural = "TABLES"
+        in_schema          = "DLSNAPSHOT_SILVER.DLALLOWANCE_SANDBOX"
+      }
+    }
+  }
+  grant_sandbox_allowance_ro = {
+    account_role_name = "DLALLOWANCE_SANDBOX_RO"
+    privileges        = ["USAGE"]
+    on_schema = {
+      schema_name = "DLSNAPSHOT_SILVER.DLALLOWANCE_SANDBOX"
+    }
+  }
+  grant_sandbox_allowance_ro_tables = {
+    account_role_name = "DLALLOWANCE_SANDBOX_RO"
+    privileges        = ["SELECT"]
+    on_schema_object = {
+      all = {
+        object_type_plural = "TABLES"
+        in_schema          = "DLSNAPSHOT_SILVER.DLALLOWANCE_SANDBOX"
+      }
+    }
+  }
+
+  grant_sandbox_core_rw = {
+    account_role_name = "DLCORE_SANDBOX_RW"
+    privileges        = ["USAGE", "CREATE TABLE", "CREATE VIEW", "CREATE STAGE", "CREATE FILE FORMAT", "CREATE SEQUENCE", "CREATE FUNCTION", "CREATE PROCEDURE"]
+    on_schema = {
+      schema_name = "DLSNAPSHOT_SILVER.DLCORE_SANDBOX"
+    }
+  }
+  grant_sandbox_core_rw_tables = {
+    account_role_name = "DLCORE_SANDBOX_RW"
+    privileges        = ["SELECT", "INSERT", "UPDATE", "DELETE", "TRUNCATE", "REFERENCES"]
+    on_schema_object = {
+      all = {
+        object_type_plural = "TABLES"
+        in_schema          = "DLSNAPSHOT_SILVER.DLCORE_SANDBOX"
+      }
+    }
+  }
+  grant_sandbox_core_ro = {
+    account_role_name = "DLCORE_SANDBOX_RO"
+    privileges        = ["USAGE"]
+    on_schema = {
+      schema_name = "DLSNAPSHOT_SILVER.DLCORE_SANDBOX"
+    }
+  }
+  grant_sandbox_core_ro_tables = {
+    account_role_name = "DLCORE_SANDBOX_RO"
+    privileges        = ["SELECT"]
+    on_schema_object = {
+      all = {
+        object_type_plural = "TABLES"
+        in_schema          = "DLSNAPSHOT_SILVER.DLCORE_SANDBOX"
+      }
+    }
+  }
+
+}
+
+########## Schemas for Admin Integration DB ###########
+schemas = {
+  NETWORKING_Admin = {
+    database            = "ADMIN_INTEGRATION_DB"
+    name                = "NETWORKING"
+    comment             = "Schema for network rules, secrets, and integration objects"
+    with_managed_access = false
+  }
+
+  ########## Sandbox Schemas on Silver DB ###########
+  DLDATASCIENCE_SANDBOX_Silver = {
+    database            = "DLSNAPSHOT_SILVER"
+    name                = "DLDATASCIENCE_SANDBOX"
+    comment             = "Sandbox schema for Data Science team"
+    with_managed_access = false
+  }
+  DLCREDITRISK_SANDBOX_Silver = {
+    database            = "DLSNAPSHOT_SILVER"
+    name                = "DLCREDITRISK_SANDBOX"
+    comment             = "Sandbox schema for Credit Risk team"
+    with_managed_access = false
+  }
+  DLFRAUD_SANDBOX_Silver = {
+    database            = "DLSNAPSHOT_SILVER"
+    name                = "DLFRAUD_SANDBOX"
+    comment             = "Sandbox schema for Fraud team"
+    with_managed_access = false
+  }
+  DLANALYTICS_SANDBOX_Silver = {
+    database            = "DLSNAPSHOT_SILVER"
+    name                = "DLANALYTICS_SANDBOX"
+    comment             = "Sandbox schema for Analytics team"
+    with_managed_access = false
+  }
+  DLCOLLECTION_SANDBOX_Silver = {
+    database            = "DLSNAPSHOT_SILVER"
+    name                = "DLCOLLECTION_SANDBOX"
+    comment             = "Sandbox schema for Collection team"
+    with_managed_access = false
+  }
+  DLALLOWANCE_SANDBOX_Silver = {
+    database            = "DLSNAPSHOT_SILVER"
+    name                = "DLALLOWANCE_SANDBOX"
+    comment             = "Sandbox schema for Allowance & Forecast team"
+    with_managed_access = false
+  }
+  DLCORE_SANDBOX_Silver = {
+    database            = "DLSNAPSHOT_SILVER"
+    name                = "DLCORE_SANDBOX"
+    comment             = "Sandbox schema for Core team"
+    with_managed_access = false
+  }
+
+  ########## Schemas for Bronze Database ###########
+  RDS_BANKSQL01_AUTOBANK_US_Bronze = {
+    database            = "DLSTAGE_BRONZE"
+    name                = "RDS_BANKSQL01_AUTOBANK_US"
+    comment             = "Schema for RDS BANKSQL01 AUTOBANK US for Bronze Database"
+    with_managed_access = false
+  }
+
+  RDS_VITACAN_VITACHQ_CAN_Bronze = {
+    database            = "DLSTAGE_BRONZE"
+    name                = "RDS_VITACAN_VITACHQ_CAN"
+    comment             = "Schema for RDS_VITACAN_VITACHQ_CAN for Bronze Database"
+    with_managed_access = false
+  }
+
+  RDS_VITAUS_VITACHEQ_US_Bronze = {
+    database            = "DLSTAGE_BRONZE"
+    name                = "RDS_VITAUS_VITACHEQ_US"
+    comment             = "Schema for RDS_VITAUS_VITACHEQ_US for Bronze Database"
+    with_managed_access = false
+  }
+
+  RDS_VITAUS_VITAFX_US_Bronze = {
+    database            = "DLSTAGE_BRONZE"
+    name                = "RDS_VITAUS_VITAFX_US"
+    comment             = "Schema for RDS_VITAUS_VITAFX_US for Bronze Database"
+    with_managed_access = false
+  }
+
+  RDS_VITACAN_VITAFX_CAN_Bronze = {
+    database            = "DLSTAGE_BRONZE"
+    name                = "RDS_VITACAN_VITAFX_CAN"
+    comment             = "Schema for RDS_VITACAN_VITAFX_CAN for Bronze Database"
+    with_managed_access = false
+  }
+
+  RDS_VITACAN_VITATRAN_CAN_Bronze = {
+    database            = "DLSTAGE_BRONZE"
+    name                = "RDS_VITACAN_VITATRAN_CAN"
+    comment             = "Schema for RDS_VITACAN_VITATRAN_CAN for Bronze Database"
+    with_managed_access = false
+  }
+
+  RDS_EEPSUITECOMSQL_USEFT_Bronze = {
+    database            = "DLSTAGE_BRONZE"
+    name                = "RDS_EEPSUITECOMSQL_USEFT"
+    comment             = "Schema for RDS_EEPSUITECOMSQL_USEFT for Bronze Database"
+    with_managed_access = false
+  }
+
+  RDS_NADC1PPROD01_SECU_NADC1_Bronze = {
+    database            = "DLSTAGE_BRONZE"
+    name                = "RDS_NADC1PPROD01_SECU_NADC1"
+    comment             = "Schema for RDS_NADC1PPROD01_SECU_NADC1 for Bronze Database"
+    with_managed_access = false
+  }
+
+  RDS_VITACAN_VITAOPER_CAN_Bronze = {
+    database            = "DLSTAGE_BRONZE"
+    name                = "RDS_VITACAN_VITAOPER_CAN"
+    comment             = "Schema for RDS_VITACAN_VITAOPER_CAN for Bronze Database"
+    with_managed_access = false
+  }
+
+  RDS_VITACAN_VITACRM_CAN_Bronze = {
+    database            = "DLSTAGE_BRONZE"
+    name                = "RDS_VITACAN_VITACRM_CAN"
+    comment             = "Schema for RDS_VITACAN_VITACRM_CAN for Bronze Database"
+    with_managed_access = false
+  }
+
+  RDS_VITACAN_VITAPDL_CAN_Bronze = {
+    database            = "DLSTAGE_BRONZE"
+    name                = "RDS_VITACAN_VITAPDL_CAN"
+    comment             = "Schema for RDS_VITACAN_VITACRM_CAN for Bronze Database"
+    with_managed_access = false
+  }
+
+  RDS_NADC1PSQL99_JOURNAL_CAN_Bronze = {
+    database            = "DLSTAGE_BRONZE"
+    name                = "RDS_NADC1PSQL99_JOURNAL_CAN"
+    comment             = "Schema for RDS_NADC1PSQL99_JOURNAL_CAN for Bronze Database"
+    with_managed_access = false
+  }
+
+  RDS_VITAUS_VITAPDL_US_Bronze = {
+    database            = "DLSTAGE_BRONZE"
+    name                = "RDS_VITAUS_VITAPDL_US"
+    comment             = "Schema for RDS_VITAUS_VITAPDL_US for Bronze Database"
+    with_managed_access = false
+  }
+
+  RDS_VITAUS_VITACRM_US_Bronze = {
+    database            = "DLSTAGE_BRONZE"
+    name                = "RDS_VITAUS_VITACRM_US"
+    comment             = "Schema for RDS_VITAUS_VITACRM_US for Bronze Database"
+    with_managed_access = false
+  }
+
+  RDS_VITAUS_VITAOPER_US_Bronze = {
+    database            = "DLSTAGE_BRONZE"
+    name                = "RDS_VITAUS_VITAOPER_US"
+    comment             = "Schema for RDS_VITAUS_VITAOPER_US for Bronze Database"
+    with_managed_access = false
+  }
+
+  RDS_VITAUS_VITATRAN_US_Bronze = {
+    database            = "DLSTAGE_BRONZE"
+    name                = "RDS_VITAUS_VITATRAN_US"
+    comment             = "Schema for RDS_VITAUS_VITATRAN_US for Bronze Database"
+    with_managed_access = false
+  }
+
+  RDS_LOANPRO_Bronze = {
+    database            = "DLSTAGE_BRONZE"
+    name                = "RDS_LOANPRO"
+    comment             = "Schema for RDS_LOANPRO for Bronze Database"
+    with_managed_access = false
+  }
+
+  RDS_VITACAN_VITACENAUTH_CAN_Bronze = {
+    database            = "DLSTAGE_BRONZE"
+    name                = "RDS_VITACAN_VITACENAUTH_CAN"
+    comment             = "Schema for RDS_VITACAN_VITACENAUTH_CAN for Bronze Database"
+    with_managed_access = false
+  }
+
+  RDS_VITAUS_VITACENAUTH_US_Bronze = {
+    database            = "DLSTAGE_BRONZE"
+    name                = "RDS_VITAUS_VITACENAUTH_US"
+    comment             = "Schema for RDS_VITAUS_VITACENAUTH_US for Bronze Database"
+    with_managed_access = false
+  }
+
+  RDS_NADC1PSQL99_JOURNAL_US_Bronze = {
+    database            = "DLSTAGE_BRONZE"
+    name                = "RDS_NADC1PSQL99_JOURNAL_US"
+    comment             = "Schema for RDS_NADC1PSQL99_JOURNAL_US for Bronze Database"
+    with_managed_access = false
+  }
+
+  RDS_VITACAN_BIDATA_CAN_Bronze = {
+    database            = "DLSTAGE_BRONZE"
+    name                = "RDS_VITACAN_BIDATA_CAN"
+    comment             = "Schema for RDS_VITACAN_BIDATA_CAN for Bronze Database"
+    with_managed_access = false
+  }
+
+  RDS_VITAUS_VITAMMDTC_US_Bronze = {
+    database            = "DLSTAGE_BRONZE"
+    name                = "RDS_VITAUS_VITAMMDTC_US"
+    comment             = "Schema for RDS_VITAUS_VITAMMDTC_US for Bronze Database"
+    with_managed_access = false
+  }
+
+  RDS_PRPSQLUS_CARDPROCESSOR_US_Bronze = {
+    database            = "DLSTAGE_BRONZE"
+    name                = "RDS_PRPSQLUS_CARDPROCESSOR_US"
+    comment             = "Schema for RDS_PRPSQLUS_CARDPROCESSOR_US for Bronze Database"
+    with_managed_access = false
+  }
+
+  RDS_CARD_DEBITCARDTOKENIZER_Bronze = {
+    database            = "DLSTAGE_BRONZE"
+    name                = "RDS_CARD_DEBITCARDTOKENIZER"
+    comment             = "Schema for RDS_CARD_DEBITCARDTOKENIZER for Bronze Database"
+    with_managed_access = false
+  }
+
+  RDS_PRPSQLCAN_CARDPROCESSOR_CAN_Bronze = {
+    database            = "DLSTAGE_BRONZE"
+    name                = "RDS_PRPSQLCAN_CARDPROCESSOR_CAN"
+    comment             = "Schema for RDS_PRPSQLCAN_CARDPROCESSOR_CAN for Bronze Database"
+    with_managed_access = false
+  }
+
+  RDS_VITAUS_VITAUW_US_Bronze = {
+    database            = "DLSTAGE_BRONZE"
+    name                = "RDS_VITAUS_VITAUW_US"
+    comment             = "Schema for RDS_VITAUS_VITAUW_US for Bronze Database"
+    with_managed_access = false
+  }
+
+  RDS_VITACAN_VITAUW_CAN_Bronze = {
+    database            = "DLSTAGE_BRONZE"
+    name                = "RDS_VITACAN_VITAUW_CAN"
+    comment             = "Schema for RDS_VITACAN_VITAUW_CAN for Bronze Database"
+    with_managed_access = false
+  }
+
+  RDS_VITAUS_VITAWESUNION_US_Bronze = {
+    database            = "DLSTAGE_BRONZE"
+    name                = "RDS_VITAUS_VITAWESUNION_US"
+    comment             = "Schema for RDS_VITAUS_VITAWESUNION_US for Bronze Database"
+    with_managed_access = false
+  }
+
+  RDS_VITAUS_BIDATA_US_Bronze = {
+    database            = "DLSTAGE_BRONZE"
+    name                = "RDS_VITAUS_BIDATA_US"
+    comment             = "Schema for RDS_VITAUS_BIDATA_US for Bronze Database"
+    with_managed_access = false
+  }
+
+  RDS_VITACAN_VITAMONORDERS_CAN_Bronze = {
+    database            = "DLSTAGE_BRONZE"
+    name                = "RDS_VITACAN_VITAMONORDERS_CAN"
+    comment             = "Schema for RDS_VITACAN_VITAMONORDERS_CAN for Bronze Database"
+    with_managed_access = false
+  }
+
+  RDS_VITAUS_VITAMONORDERS_US_Bronze = {
+    database            = "DLSTAGE_BRONZE"
+    name                = "RDS_VITAUS_VITAMONORDERS_US"
+    comment             = "Schema for RDS_VITAUS_VITAMONORDERS_US for Bronze Database"
+    with_managed_access = false
+  }
+
+  RDS_VITACAN_VITAWESUNION_CAN_Bronze = {
+    database            = "DLSTAGE_BRONZE"
+    name                = "RDS_VITACAN_VITAWESUNION_CAN"
+    comment             = "Schema for RDS_VITACAN_VITAWESUNION_CAN for Bronze Database"
+    with_managed_access = false
+  }
+
+  RDS_VITACAN_VITAEVENTAUDIT_CAN_Bronze = {
+    database            = "DLSTAGE_BRONZE"
+    name                = "RDS_VITACAN_VITAEVENTAUDIT_CAN"
+    comment             = "Schema for RDS_VITACAN_VITAEVENTAUDIT_CAN for Bronze Database"
+    with_managed_access = false
+  }
+
+  RDS_VITAUS_VITAEVENTAUDIT_US_Bronze = {
+    database            = "DLSTAGE_BRONZE"
+    name                = "RDS_VITAUS_VITAEVENTAUDIT_US"
+    comment             = "Schema for RDS_VITAUS_VITAEVENTAUDIT_US for Bronze Database"
+    with_managed_access = false
+  }
+
+  RDS_EEPSUITECOMSQL_CANEFT_Bronze = {
+    database            = "DLSTAGE_BRONZE"
+    name                = "RDS_EEPSUITECOMSQL_CANEFT"
+    comment             = "Schema for RDS_EEPSUITECOMSQL_CANEFT for Bronze Database"
+    with_managed_access = false
+  }
+
+  RDA_VITACAN_VITAAPPVERI_CAN_Bronze = {
+    database            = "DLSTAGE_BRONZE"
+    name                = "RDA_VITACAN_VITAAPPVERI_CAN"
+    comment             = "Schema for RDA_VITACAN_VITAAPPVERI_CAN for Bronze Database"
+    with_managed_access = false
+  }
+
+  RDS_VITAUS_VITAAPPVERI_US_Bronze = {
+    database            = "DLSTAGE_BRONZE"
+    name                = "RDS_VITAUS_VITAAPPVERI_US"
+    comment             = "Schema for RDS_VITAUS_VITAAPPVERI_US for Bronze Database"
+    with_managed_access = false
+  }
+
+  RDS_PUSSQL01_IDVERIFIER_Bronze = {
+    database            = "DLSTAGE_BRONZE"
+    name                = "RDS_PUSSQL01_IDVERIFIER"
+    comment             = "Schema for RDS_PUSSQL01_IDVERIFIER for Bronze Database"
+    with_managed_access = false
+  }
+
+  RDS_VITACAN_BANKINT_CAN_Bronze = {
+    database            = "DLSTAGE_BRONZE"
+    name                = "RDS_VITACAN_BANKINT_CAN"
+    comment             = "Schema for RDS_VITACAN_BANKINT_CAN for Bronze Database"
+    with_managed_access = false
+  }
+
+  NETWORK_Bronze = {
+    database            = "DLSTAGE_BRONZE"
+    name                = "NETWORK"
+    comment             = "Schema for Network for Bronze Database"
+    with_managed_access = false
+  }
+
+
+
+  RDS_BANKSQL01_AUTOBANK_US_Silver = {
+    database            = "DLSNAPSHOT_SILVER"
+    name                = "RDS_BANKSQL01_AUTOBANK_US"
+    comment             = "Schema for RDS BANKSQL01 AUTOBANK US for Silver Database"
+    with_managed_access = false
+  }
+
+  RDS_VITACAN_VITACHQ_CAN_Silver = {
+    database            = "DLSNAPSHOT_SILVER"
+    name                = "RDS_VITACAN_VITACHQ_CAN"
+    comment             = "Schema for RDS_VITACAN_VITACHQ_CAN for Silver Database"
+    with_managed_access = false
+  }
+
+  RDS_VITAUS_VITACHEQ_US_Silver = {
+    database            = "DLSNAPSHOT_SILVER"
+    name                = "RDS_VITAUS_VITACHEQ_US"
+    comment             = "Schema for RDS_VITAUS_VITACHEQ_US for Silver Database"
+    with_managed_access = false
+  }
+
+  RDS_VITAUS_VITAFX_US_Silver = {
+    database            = "DLSNAPSHOT_SILVER"
+    name                = "RDS_VITAUS_VITAFX_US"
+    comment             = "Schema for RDS_VITAUS_VITAFX_US for Silver Database"
+    with_managed_access = false
+  }
+
+  RDS_VITACAN_VITAFX_CAN_Silver = {
+    database            = "DLSNAPSHOT_SILVER"
+    name                = "RDS_VITACAN_VITAFX_CAN"
+    comment             = "Schema for RDS_VITACAN_VITAFX_CAN for Silver Database"
+    with_managed_access = false
+  }
+
+  RDS_VITACAN_VITATRAN_CAN_Silver = {
+    database            = "DLSNAPSHOT_SILVER"
+    name                = "RDS_VITACAN_VITATRAN_CAN"
+    comment             = "Schema for RDS_VITACAN_VITATRAN_CAN for Silver Database"
+    with_managed_access = false
+  }
+
+  RDS_EEPSUITECOMSQL_USEFT_Silver = {
+    database            = "DLSNAPSHOT_SILVER"
+    name                = "RDS_EEPSUITECOMSQL_USEFT"
+    comment             = "Schema for RDS_EEPSUITECOMSQL_USEFT for Silver Database"
+    with_managed_access = false
+  }
+
+  RDS_NADC1PPROD01_SECU_NADC1_Silver = {
+    database            = "DLSNAPSHOT_SILVER"
+    name                = "RDS_NADC1PPROD01_SECU_NADC1"
+    comment             = "Schema for RDS_NADC1PPROD01_SECU_NADC1 for Silver Database"
+    with_managed_access = false
+  }
+
+  RDS_VITACAN_VITAOPER_CAN_Silver = {
+    database            = "DLSNAPSHOT_SILVER"
+    name                = "RDS_VITACAN_VITAOPER_CAN"
+    comment             = "Schema for RDS_VITACAN_VITAOPER_CAN for Silver Database"
+    with_managed_access = false
+  }
+
+  RDS_VITACAN_VITACRM_CAN_Silver = {
+    database            = "DLSNAPSHOT_SILVER"
+    name                = "RDS_VITACAN_VITACRM_CAN"
+    comment             = "Schema for RDS_VITACAN_VITACRM_CAN for Silver Database"
+    with_managed_access = false
+  }
+
+  RDS_VITACAN_VITAPDL_CAN_Silver = {
+    database            = "DLSNAPSHOT_SILVER"
+    name                = "RDS_VITACAN_VITAPDL_CAN"
+    comment             = "Schema for RDS_VITACAN_VITACRM_CAN for Silver Database"
+    with_managed_access = false
+  }
+
+  RDS_NADC1PSQL99_JOURNAL_CAN_Silver = {
+    database            = "DLSNAPSHOT_SILVER"
+    name                = "RDS_NADC1PSQL99_JOURNAL_CAN"
+    comment             = "Schema for RDS_NADC1PSQL99_JOURNAL_CAN for Silver Database"
+    with_managed_access = false
+  }
+
+  RDS_VITAUS_VITAPDL_US_Silver = {
+    database            = "DLSNAPSHOT_SILVER"
+    name                = "RDS_VITAUS_VITAPDL_US"
+    comment             = "Schema for RDS_VITAUS_VITAPDL_US for Silver Database"
+    with_managed_access = false
+  }
+
+  RDS_VITAUS_VITACRM_US_Silver = {
+    database            = "DLSNAPSHOT_SILVER"
+    name                = "RDS_VITAUS_VITACRM_US"
+    comment             = "Schema for RDS_VITAUS_VITACRM_US for Silver Database"
+    with_managed_access = false
+  }
+
+  RDS_VITAUS_VITAOPER_US_Silver = {
+    database            = "DLSNAPSHOT_SILVER"
+    name                = "RDS_VITAUS_VITAOPER_US"
+    comment             = "Schema for RDS_VITAUS_VITAOPER_US for Silver Database"
+    with_managed_access = false
+  }
+
+  RDS_VITAUS_VITATRAN_US_Silver = {
+    database            = "DLSNAPSHOT_SILVER"
+    name                = "RDS_VITAUS_VITATRAN_US"
+    comment             = "Schema for RDS_VITAUS_VITATRAN_US for Silver Database"
+    with_managed_access = false
+  }
+
+  RDS_LOANPRO_Silver = {
+    database            = "DLSNAPSHOT_SILVER"
+    name                = "RDS_LOANPRO"
+    comment             = "Schema for RDS_LOANPRO for Silver Database"
+    with_managed_access = false
+  }
+
+  RDS_VITACAN_VITACENAUTH_CAN_Silver = {
+    database            = "DLSNAPSHOT_SILVER"
+    name                = "RDS_VITACAN_VITACENAUTH_CAN"
+    comment             = "Schema for RDS_VITACAN_VITACENAUTH_CAN for Silver Database"
+    with_managed_access = false
+  }
+
+  RDS_VITAUS_VITACENAUTH_US_Silver = {
+    database            = "DLSNAPSHOT_SILVER"
+    name                = "RDS_VITAUS_VITACENAUTH_US"
+    comment             = "Schema for RDS_VITAUS_VITACENAUTH_US for Silver Database"
+    with_managed_access = false
+  }
+
+  RDS_NADC1PSQL99_JOURNAL_US_Silver = {
+    database            = "DLSNAPSHOT_SILVER"
+    name                = "RDS_NADC1PSQL99_JOURNAL_US"
+    comment             = "Schema for RDS_NADC1PSQL99_JOURNAL_US for Silver Database"
+    with_managed_access = false
+  }
+
+  RDS_VITACAN_BIDATA_CAN_Silver = {
+    database            = "DLSNAPSHOT_SILVER"
+    name                = "RDS_VITACAN_BIDATA_CAN"
+    comment             = "Schema for RDS_VITACAN_BIDATA_CAN for Silver Database"
+    with_managed_access = false
+  }
+
+  RDS_VITAUS_VITAMMDTC_US_Silver = {
+    database            = "DLSNAPSHOT_SILVER"
+    name                = "RDS_VITAUS_VITAMMDTC_US"
+    comment             = "Schema for RDS_VITAUS_VITAMMDTC_US for Silver Database"
+    with_managed_access = false
+  }
+
+  RDS_PRPSQLUS_CARDPROCESSOR_US_Silver = {
+    database            = "DLSNAPSHOT_SILVER"
+    name                = "RDS_PRPSQLUS_CARDPROCESSOR_US"
+    comment             = "Schema for RDS_PRPSQLUS_CARDPROCESSOR_US for Silver Database"
+    with_managed_access = false
+  }
+
+  RDS_CARD_DEBITCARDTOKENIZER_Silver = {
+    database            = "DLSNAPSHOT_SILVER"
+    name                = "RDS_CARD_DEBITCARDTOKENIZER"
+    comment             = "Schema for RDS_CARD_DEBITCARDTOKENIZER for Silver Database"
+    with_managed_access = false
+  }
+
+  RDS_PRPSQLCAN_CARDPROCESSOR_CAN_Silver = {
+    database            = "DLSNAPSHOT_SILVER"
+    name                = "RDS_PRPSQLCAN_CARDPROCESSOR_CAN"
+    comment             = "Schema for RDS_PRPSQLCAN_CARDPROCESSOR_CAN for Silver Database"
+    with_managed_access = false
+  }
+
+  RDS_VITAUS_VITAUW_US_Silver = {
+    database            = "DLSNAPSHOT_SILVER"
+    name                = "RDS_VITAUS_VITAUW_US"
+    comment             = "Schema for RDS_VITAUS_VITAUW_US for Silver Database"
+    with_managed_access = false
+  }
+
+  RDS_VITACAN_VITAUW_CAN_Silver = {
+    database            = "DLSNAPSHOT_SILVER"
+    name                = "RDS_VITACAN_VITAUW_CAN"
+    comment             = "Schema for RDS_VITACAN_VITAUW_CAN for Silver Database"
+    with_managed_access = false
+  }
+
+  RDS_VITAUS_VITAWESUNION_US_Silver = {
+    database            = "DLSNAPSHOT_SILVER"
+    name                = "RDS_VITAUS_VITAWESUNION_US"
+    comment             = "Schema for RDS_VITAUS_VITAWESUNION_US for Silver Database"
+    with_managed_access = false
+  }
+
+  RDS_VITAUS_BIDATA_US_Silver = {
+    database            = "DLSNAPSHOT_SILVER"
+    name                = "RDS_VITAUS_BIDATA_US"
+    comment             = "Schema for RDS_VITAUS_BIDATA_US for Silver Database"
+    with_managed_access = false
+  }
+
+  RDS_VITACAN_VITAMONORDERS_CAN_Silver = {
+    database            = "DLSNAPSHOT_SILVER"
+    name                = "RDS_VITACAN_VITAMONORDERS_CAN"
+    comment             = "Schema for RDS_VITACAN_VITAMONORDERS_CAN for Silver Database"
+    with_managed_access = false
+  }
+
+  RDS_VITAUS_VITAMONORDERS_US_Silver = {
+    database            = "DLSNAPSHOT_SILVER"
+    name                = "RDS_VITAUS_VITAMONORDERS_US"
+    comment             = "Schema for RDS_VITAUS_VITAMONORDERS_US for Silver Database"
+    with_managed_access = false
+  }
+
+  RDS_VITACAN_VITAWESUNION_CAN_Silver = {
+    database            = "DLSNAPSHOT_SILVER"
+    name                = "RDS_VITACAN_VITAWESUNION_CAN"
+    comment             = "Schema for RDS_VITACAN_VITAWESUNION_CAN for Silver Database"
+    with_managed_access = false
+  }
+
+  RDS_VITACAN_VITAEVENTAUDIT_CAN_Silver = {
+    database            = "DLSNAPSHOT_SILVER"
+    name                = "RDS_VITACAN_VITAEVENTAUDIT_CAN"
+    comment             = "Schema for RDS_VITACAN_VITAEVENTAUDIT_CAN for Silver Database"
+    with_managed_access = false
+  }
+
+  RDS_VITAUS_VITAEVENTAUDIT_US_Silver = {
+    database            = "DLSNAPSHOT_SILVER"
+    name                = "RDS_VITAUS_VITAEVENTAUDIT_US"
+    comment             = "Schema for RDS_VITAUS_VITAEVENTAUDIT_US for Silver Database"
+    with_managed_access = false
+  }
+
+  RDS_EEPSUITECOMSQL_CANEFT_Silver = {
+    database            = "DLSNAPSHOT_SILVER"
+    name                = "RDS_EEPSUITECOMSQL_CANEFT"
+    comment             = "Schema for RDS_EEPSUITECOMSQL_CANEFT for Silver Database"
+    with_managed_access = false
+  }
+
+  RDA_VITACAN_VITAAPPVERI_CAN_Silver = {
+    database            = "DLSNAPSHOT_SILVER"
+    name                = "RDA_VITACAN_VITAAPPVERI_CAN"
+    comment             = "Schema for RDA_VITACAN_VITAAPPVERI_CAN for Silver Database"
+    with_managed_access = false
+  }
+
+  RDS_VITAUS_VITAAPPVERI_US_Silver = {
+    database            = "DLSNAPSHOT_SILVER"
+    name                = "RDS_VITAUS_VITAAPPVERI_US"
+    comment             = "Schema for RDS_VITAUS_VITAAPPVERI_US for Silver Database"
+    with_managed_access = false
+  }
+
+  RDS_PUSSQL01_IDVERIFIER_Silver = {
+    database            = "DLSNAPSHOT_SILVER"
+    name                = "RDS_PUSSQL01_IDVERIFIER"
+    comment             = "Schema for RDS_PUSSQL01_IDVERIFIER for Silver Database"
+    with_managed_access = false
+  }
+
+  RDS_VITACAN_BANKINT_CAN_Silver = {
+    database            = "DLSNAPSHOT_SILVER"
+    name                = "RDS_VITACAN_BANKINT_CAN"
+    comment             = "Schema for RDS_VITACAN_BANKINT_CAN for Silver Database"
+    with_managed_access = false
+  }
+
+  NETWORK_Silver = {
+    database            = "DLSNAPSHOT_SILVER"
+    name                = "NETWORK"
+    comment             = "Schema for Network for Silver Database"
+    with_managed_access = false
+  }
+}
+
+
+######################################################################
+# ROLE-TO-ROLE GRANTS
+# Grant DB access roles, sandbox roles, warehouse usage roles, and
+# admin DB roles to functional roles per the RBAC Excel spec.
+######################################################################
+role_to_role_grants = {
+
+  ########## RW Functional Roles → Sandbox RW + Silver RO + Gold RO ##########
+  # MFSG_DATASCI_ROLE_RW
+  grant_datasci_rw_sandbox = {
+    role_name        = "DLDATASCIENCE_SANDBOX_RW"
+    parent_role_name = "MFSG_DATASCI_ROLE_RW"
+  }
+  grant_datasci_rw_silver_ro = {
+    role_name        = "DLSNAPSHOT_SILVER_RO"
+    parent_role_name = "MFSG_DATASCI_ROLE_RW"
+  }
+  grant_datasci_rw_gold_ro = {
+    role_name        = "DLCONSUMPTION_GOLD_RO"
+    parent_role_name = "MFSG_DATASCI_ROLE_RW"
+  }
+
+  # MFSG_CREDITRISK_ROLE_RW
+  grant_creditrisk_rw_sandbox = {
+    role_name        = "DLCREDITRISK_SANDBOX_RW"
+    parent_role_name = "MFSG_CREDITRISK_ROLE_RW"
+  }
+  grant_creditrisk_rw_silver_ro = {
+    role_name        = "DLSNAPSHOT_SILVER_RO"
+    parent_role_name = "MFSG_CREDITRISK_ROLE_RW"
+  }
+  grant_creditrisk_rw_gold_ro = {
+    role_name        = "DLCONSUMPTION_GOLD_RO"
+    parent_role_name = "MFSG_CREDITRISK_ROLE_RW"
+  }
+
+  # MFSG_FRAUD_ROLE_RW
+  grant_fraud_rw_sandbox = {
+    role_name        = "DLFRAUD_SANDBOX_RW"
+    parent_role_name = "MFSG_FRAUD_ROLE_RW"
+  }
+  grant_fraud_rw_silver_ro = {
+    role_name        = "DLSNAPSHOT_SILVER_RO"
+    parent_role_name = "MFSG_FRAUD_ROLE_RW"
+  }
+  grant_fraud_rw_gold_ro = {
+    role_name        = "DLCONSUMPTION_GOLD_RO"
+    parent_role_name = "MFSG_FRAUD_ROLE_RW"
+  }
+
+  # MFSG_ANALYTICS_ROLE_RW
+  grant_analytics_rw_sandbox = {
+    role_name        = "DLANALYTICS_SANDBOX_RW"
+    parent_role_name = "MFSG_ANALYTICS_ROLE_RW"
+  }
+  grant_analytics_rw_silver_ro = {
+    role_name        = "DLSNAPSHOT_SILVER_RO"
+    parent_role_name = "MFSG_ANALYTICS_ROLE_RW"
+  }
+  grant_analytics_rw_gold_ro = {
+    role_name        = "DLCONSUMPTION_GOLD_RO"
+    parent_role_name = "MFSG_ANALYTICS_ROLE_RW"
+  }
+
+  # MFSG_COLLECTION_ROLE_RW
+  grant_collection_rw_sandbox = {
+    role_name        = "DLCOLLECTION_SANDBOX_RW"
+    parent_role_name = "MFSG_COLLECTION_ROLE_RW"
+  }
+  grant_collection_rw_silver_ro = {
+    role_name        = "DLSNAPSHOT_SILVER_RO"
+    parent_role_name = "MFSG_COLLECTION_ROLE_RW"
+  }
+  grant_collection_rw_gold_ro = {
+    role_name        = "DLCONSUMPTION_GOLD_RO"
+    parent_role_name = "MFSG_COLLECTION_ROLE_RW"
+  }
+
+  # MFSG_ALLOWFOR_ROLE_RW
+  grant_allowfor_rw_sandbox = {
+    role_name        = "DLALLOWANCE_SANDBOX_RW"
+    parent_role_name = "MFSG_ALLOWFOR_ROLE_RW"
+  }
+  grant_allowfor_rw_silver_ro = {
+    role_name        = "DLSNAPSHOT_SILVER_RO"
+    parent_role_name = "MFSG_ALLOWFOR_ROLE_RW"
+  }
+  grant_allowfor_rw_gold_ro = {
+    role_name        = "DLCONSUMPTION_GOLD_RO"
+    parent_role_name = "MFSG_ALLOWFOR_ROLE_RW"
+  }
+
+  # MFSG_IT_CORE_ROLE_RW
+  grant_it_core_rw_sandbox = {
+    role_name        = "DLCORE_SANDBOX_RW"
+    parent_role_name = "MFSG_IT_CORE_ROLE_RW"
+  }
+  grant_it_core_rw_silver_ro = {
+    role_name        = "DLSNAPSHOT_SILVER_RO"
+    parent_role_name = "MFSG_IT_CORE_ROLE_RW"
+  }
+  grant_it_core_rw_gold_ro = {
+    role_name        = "DLCONSUMPTION_GOLD_RO"
+    parent_role_name = "MFSG_IT_CORE_ROLE_RW"
+  }
+
+  ########## RO Functional Roles → Silver RO + Gold RO ##########
+  grant_datasci_ro_silver_ro = {
+    role_name        = "DLSNAPSHOT_SILVER_RO"
+    parent_role_name = "MFSG_DATASCI_ROLE_RO"
+  }
+  grant_datasci_ro_gold_ro = {
+    role_name        = "DLCONSUMPTION_GOLD_RO"
+    parent_role_name = "MFSG_DATASCI_ROLE_RO"
+  }
+  grant_creditrisk_ro_silver_ro = {
+    role_name        = "DLSNAPSHOT_SILVER_RO"
+    parent_role_name = "MFSG_CREDITRISK_ROLE_RO"
+  }
+  grant_creditrisk_ro_gold_ro = {
+    role_name        = "DLCONSUMPTION_GOLD_RO"
+    parent_role_name = "MFSG_CREDITRISK_ROLE_RO"
+  }
+  grant_fraud_ro_silver_ro = {
+    role_name        = "DLSNAPSHOT_SILVER_RO"
+    parent_role_name = "MFSG_FRAUD_ROLE_RO"
+  }
+  grant_fraud_ro_gold_ro = {
+    role_name        = "DLCONSUMPTION_GOLD_RO"
+    parent_role_name = "MFSG_FRAUD_ROLE_RO"
+  }
+  grant_analytics_ro_silver_ro = {
+    role_name        = "DLSNAPSHOT_SILVER_RO"
+    parent_role_name = "MFSG_ANALYTICS_ROLE_RO"
+  }
+  grant_analytics_ro_gold_ro = {
+    role_name        = "DLCONSUMPTION_GOLD_RO"
+    parent_role_name = "MFSG_ANALYTICS_ROLE_RO"
+  }
+  grant_collection_ro_silver_ro = {
+    role_name        = "DLSNAPSHOT_SILVER_RO"
+    parent_role_name = "MFSG_COLLECTION_ROLE_RO"
+  }
+  grant_collection_ro_gold_ro = {
+    role_name        = "DLCONSUMPTION_GOLD_RO"
+    parent_role_name = "MFSG_COLLECTION_ROLE_RO"
+  }
+  grant_allowfor_ro_silver_ro = {
+    role_name        = "DLSNAPSHOT_SILVER_RO"
+    parent_role_name = "MFSG_ALLOWFOR_ROLE_RO"
+  }
+  grant_allowfor_ro_gold_ro = {
+    role_name        = "DLCONSUMPTION_GOLD_RO"
+    parent_role_name = "MFSG_ALLOWFOR_ROLE_RO"
+  }
+  grant_it_core_ro_silver_ro = {
+    role_name        = "DLSNAPSHOT_SILVER_RO"
+    parent_role_name = "MFSG_IT_CORE_ROLE_RO"
+  }
+  grant_it_core_ro_gold_ro = {
+    role_name        = "DLCONSUMPTION_GOLD_RO"
+    parent_role_name = "MFSG_IT_CORE_ROLE_RO"
+  }
+
+  ########## MFSG_DATAENG_DEV → Bronze RW + Silver RW + Gold RW + Admin RO ##########
+  grant_dataeng_bronze_rw = {
+    role_name        = "DLSTAGE_BRONZE_RW"
+    parent_role_name = "MFSG_DATAENG_DEV"
+  }
+  grant_dataeng_silver_rw = {
+    role_name        = "DLSNAPSHOT_SILVER_RW"
+    parent_role_name = "MFSG_DATAENG_DEV"
+  }
+  grant_dataeng_gold_rw = {
+    role_name        = "DLCONSUMPTION_GOLD_RW"
+    parent_role_name = "MFSG_DATAENG_DEV"
+  }
+  grant_dataeng_admin_ro = {
+    role_name        = "ADMIN_INTEGRATION_DB_ROLE_RO"
+    parent_role_name = "MFSG_DATAENG_DEV"
+  }
+
+  ########## Openflow Roles → DB Access Roles + Admin RO ##########
+  grant_openflow_admin_bronze_rw = {
+    role_name        = "DLSTAGE_BRONZE_RW"
+    parent_role_name = "MFSG_OPENFLOW_ADMIN"
+  }
+  grant_openflow_admin_admin_ro = {
+    role_name        = "ADMIN_INTEGRATION_DB_ROLE_RO"
+    parent_role_name = "MFSG_OPENFLOW_ADMIN"
+  }
+  grant_openflow_developer_bronze_rw = {
+    role_name        = "DLSTAGE_BRONZE_RW"
+    parent_role_name = "MFSG_OPENFLOW_DEVELOPER"
+  }
+  grant_openflow_developer_admin_ro = {
+    role_name        = "ADMIN_INTEGRATION_DB_ROLE_RO"
+    parent_role_name = "MFSG_OPENFLOW_DEVELOPER"
+  }
+  grant_openflow_monitor_bronze_ro = {
+    role_name        = "DLSTAGE_BRONZE_RO"
+    parent_role_name = "MFSG_OPENFLOW_MONITOR"
+  }
+  grant_openflow_monitor_admin_ro = {
+    role_name        = "ADMIN_INTEGRATION_DB_ROLE_RO"
+    parent_role_name = "MFSG_OPENFLOW_MONITOR"
+  }
+
+  ########## MFSG_DBT_RUNNER → Bronze RO + Silver RW + Gold RW + Admin RO ##########
+  grant_dbt_runner_bronze_ro = {
+    role_name        = "DLSTAGE_BRONZE_RO"
+    parent_role_name = "MFSG_DBT_RUNNER"
+  }
+  grant_dbt_runner_silver_rw = {
+    role_name        = "DLSNAPSHOT_SILVER_RW"
+    parent_role_name = "MFSG_DBT_RUNNER"
+  }
+  grant_dbt_runner_gold_rw = {
+    role_name        = "DLCONSUMPTION_GOLD_RW"
+    parent_role_name = "MFSG_DBT_RUNNER"
+  }
+  grant_dbt_runner_admin_ro = {
+    role_name        = "ADMIN_INTEGRATION_DB_ROLE_RO"
+    parent_role_name = "MFSG_DBT_RUNNER"
+  }
+
+  ########## MFSG_TERRAFORM_ADMIN → Bronze RW + Silver RW + Gold RW + Admin RW ##########
+  grant_terraform_bronze_rw = {
+    role_name        = "DLSTAGE_BRONZE_RW"
+    parent_role_name = "MFSG_TERRAFORM_ADMIN"
+  }
+  grant_terraform_silver_rw = {
+    role_name        = "DLSNAPSHOT_SILVER_RW"
+    parent_role_name = "MFSG_TERRAFORM_ADMIN"
+  }
+  grant_terraform_gold_rw = {
+    role_name        = "DLCONSUMPTION_GOLD_RW"
+    parent_role_name = "MFSG_TERRAFORM_ADMIN"
+  }
+  grant_terraform_admin_rw = {
+    role_name        = "ADMIN_INTEGRATION_DB_ROLE_RW"
+    parent_role_name = "MFSG_TERRAFORM_ADMIN"
+  }
+
+  ########## MASK_PII_STANDARD → Bronze RO + Silver RO + Gold RO ##########
+  grant_pii_bronze_ro = {
+    role_name        = "DLSTAGE_BRONZE_RO"
+    parent_role_name = "MASK_PII_STANDARD"
+  }
+  grant_pii_silver_ro = {
+    role_name        = "DLSNAPSHOT_SILVER_RO"
+    parent_role_name = "MASK_PII_STANDARD"
+  }
+  grant_pii_gold_ro = {
+    role_name        = "DLCONSUMPTION_GOLD_RO"
+    parent_role_name = "MASK_PII_STANDARD"
+  }
+
+  ########## Sigma + Braze → Gold RO ##########
+  grant_sigma_gold_ro = {
+    role_name        = "DLCONSUMPTION_GOLD_RO"
+    parent_role_name = "MFSG_SIGMA_READER_ROLE"
+  }
+  grant_braze_gold_ro = {
+    role_name        = "DLCONSUMPTION_GOLD_RO"
+    parent_role_name = "MFSG_BRAZE_READER_ROLE"
+  }
+
+  ########## Warehouse Usage Roles → Functional Roles ##########
+  # XS_BRONZE_USAGE_ROLE → Openflow + DataEng
+  grant_wh_bronze_to_openflow_admin = {
+    role_name        = "XS_BRONZE_USAGE_ROLE"
+    parent_role_name = "MFSG_OPENFLOW_ADMIN"
+  }
+  grant_wh_bronze_to_openflow_dev = {
+    role_name        = "XS_BRONZE_USAGE_ROLE"
+    parent_role_name = "MFSG_OPENFLOW_DEVELOPER"
+  }
+  grant_wh_bronze_to_openflow_mon = {
+    role_name        = "XS_BRONZE_USAGE_ROLE"
+    parent_role_name = "MFSG_OPENFLOW_MONITOR"
+  }
+  grant_wh_bronze_to_dataeng = {
+    role_name        = "XS_BRONZE_USAGE_ROLE"
+    parent_role_name = "MFSG_DATAENG_DEV"
+  }
+
+  # XS_SILVER_USAGE_ROLE → DataEng + DBT + all team RW + all team RO
+  grant_wh_silver_to_dataeng = {
+    role_name        = "XS_SILVER_USAGE_ROLE"
+    parent_role_name = "MFSG_DATAENG_DEV"
+  }
+  grant_wh_silver_to_dbt_runner = {
+    role_name        = "XS_SILVER_USAGE_ROLE"
+    parent_role_name = "MFSG_DBT_RUNNER"
+  }
+  grant_wh_silver_to_datasci_rw = {
+    role_name        = "XS_SILVER_USAGE_ROLE"
+    parent_role_name = "MFSG_DATASCI_ROLE_RW"
+  }
+  grant_wh_silver_to_creditrisk_rw = {
+    role_name        = "XS_SILVER_USAGE_ROLE"
+    parent_role_name = "MFSG_CREDITRISK_ROLE_RW"
+  }
+  grant_wh_silver_to_fraud_rw = {
+    role_name        = "XS_SILVER_USAGE_ROLE"
+    parent_role_name = "MFSG_FRAUD_ROLE_RW"
+  }
+  grant_wh_silver_to_analytics_rw = {
+    role_name        = "XS_SILVER_USAGE_ROLE"
+    parent_role_name = "MFSG_ANALYTICS_ROLE_RW"
+  }
+  grant_wh_silver_to_collection_rw = {
+    role_name        = "XS_SILVER_USAGE_ROLE"
+    parent_role_name = "MFSG_COLLECTION_ROLE_RW"
+  }
+  grant_wh_silver_to_allowfor_rw = {
+    role_name        = "XS_SILVER_USAGE_ROLE"
+    parent_role_name = "MFSG_ALLOWFOR_ROLE_RW"
+  }
+  grant_wh_silver_to_it_core_rw = {
+    role_name        = "XS_SILVER_USAGE_ROLE"
+    parent_role_name = "MFSG_IT_CORE_ROLE_RW"
+  }
+  grant_wh_silver_to_datasci_ro = {
+    role_name        = "XS_SILVER_USAGE_ROLE"
+    parent_role_name = "MFSG_DATASCI_ROLE_RO"
+  }
+  grant_wh_silver_to_creditrisk_ro = {
+    role_name        = "XS_SILVER_USAGE_ROLE"
+    parent_role_name = "MFSG_CREDITRISK_ROLE_RO"
+  }
+  grant_wh_silver_to_fraud_ro = {
+    role_name        = "XS_SILVER_USAGE_ROLE"
+    parent_role_name = "MFSG_FRAUD_ROLE_RO"
+  }
+  grant_wh_silver_to_analytics_ro = {
+    role_name        = "XS_SILVER_USAGE_ROLE"
+    parent_role_name = "MFSG_ANALYTICS_ROLE_RO"
+  }
+  grant_wh_silver_to_collection_ro = {
+    role_name        = "XS_SILVER_USAGE_ROLE"
+    parent_role_name = "MFSG_COLLECTION_ROLE_RO"
+  }
+  grant_wh_silver_to_allowfor_ro = {
+    role_name        = "XS_SILVER_USAGE_ROLE"
+    parent_role_name = "MFSG_ALLOWFOR_ROLE_RO"
+  }
+  grant_wh_silver_to_it_core_ro = {
+    role_name        = "XS_SILVER_USAGE_ROLE"
+    parent_role_name = "MFSG_IT_CORE_ROLE_RO"
+  }
+
+  # XS_GOLD_USAGE_ROLE → DataEng + DBT + team RW (datasci, creditrisk) + all team RO
+  grant_wh_gold_to_dataeng = {
+    role_name        = "XS_GOLD_USAGE_ROLE"
+    parent_role_name = "MFSG_DATAENG_DEV"
+  }
+  grant_wh_gold_to_dbt_runner = {
+    role_name        = "XS_GOLD_USAGE_ROLE"
+    parent_role_name = "MFSG_DBT_RUNNER"
+  }
+  grant_wh_gold_to_datasci_rw = {
+    role_name        = "XS_GOLD_USAGE_ROLE"
+    parent_role_name = "MFSG_DATASCI_ROLE_RW"
+  }
+  grant_wh_gold_to_creditrisk_rw = {
+    role_name        = "XS_GOLD_USAGE_ROLE"
+    parent_role_name = "MFSG_CREDITRISK_ROLE_RW"
+  }
+  grant_wh_gold_to_datasci_ro = {
+    role_name        = "XS_GOLD_USAGE_ROLE"
+    parent_role_name = "MFSG_DATASCI_ROLE_RO"
+  }
+  grant_wh_gold_to_creditrisk_ro = {
+    role_name        = "XS_GOLD_USAGE_ROLE"
+    parent_role_name = "MFSG_CREDITRISK_ROLE_RO"
+  }
+  grant_wh_gold_to_fraud_ro = {
+    role_name        = "XS_GOLD_USAGE_ROLE"
+    parent_role_name = "MFSG_FRAUD_ROLE_RO"
+  }
+  grant_wh_gold_to_analytics_ro = {
+    role_name        = "XS_GOLD_USAGE_ROLE"
+    parent_role_name = "MFSG_ANALYTICS_ROLE_RO"
+  }
+  grant_wh_gold_to_collection_ro = {
+    role_name        = "XS_GOLD_USAGE_ROLE"
+    parent_role_name = "MFSG_COLLECTION_ROLE_RO"
+  }
+  grant_wh_gold_to_allowfor_ro = {
+    role_name        = "XS_GOLD_USAGE_ROLE"
+    parent_role_name = "MFSG_ALLOWFOR_ROLE_RO"
+  }
+  grant_wh_gold_to_it_core_ro = {
+    role_name        = "XS_GOLD_USAGE_ROLE"
+    parent_role_name = "MFSG_IT_CORE_ROLE_RO"
+  }
+
+  # XS_SIGMA_USAGE_ROLE → Sigma reader
+  grant_wh_sigma_to_sigma_reader = {
+    role_name        = "XS_SIGMA_USAGE_ROLE"
+    parent_role_name = "MFSG_SIGMA_READER_ROLE"
+  }
+
+  # XS_BRAZE_USAGE_ROLE → Braze reader
+  grant_wh_braze_to_braze_reader = {
+    role_name        = "XS_BRAZE_USAGE_ROLE"
+    parent_role_name = "MFSG_BRAZE_READER_ROLE"
+  }
+}
+
+########## User Role Assignments ############
+user_role_assignments = {
+
+  "GSUBRAMA" = [
+    "MFSG_OPENFLOW_ADMIN",
+    "MFSG_OPENFLOW_DEVELOPER"
+  ]
+
+}

@@ -25,7 +25,7 @@ locals {
       "${k}_ro" => {
         name             = d.ro_role_name
         comment          = "Read-only role for database ${d.database}"
-        parent_role_name = d.layer_name == "BRONZE" ? "MFSG_OPENFLOW_ADMIN" : var.ro_parent_role_name
+        parent_role_name = "SYSADMIN"
       }
     },
     {
@@ -33,7 +33,7 @@ locals {
       "${k}_rw" => {
         name             = d.rw_role_name
         comment          = "Read-write role for database ${d.database}"
-        parent_role_name = d.layer_name == "BRONZE" ? "MFSG_OPENFLOW_DEVELOPER" : var.rw_parent_role_name
+        parent_role_name = "SYSADMIN"
       }
     }
   )
@@ -68,7 +68,7 @@ locals {
       }
     },
 
-    # Current schemas only: use on_schema, not SCHEMAS in on_schema_object
+    # Schema privileges for RW roles
     {
       for k, s in local.schema_metadata :
       "${k}_rw_schema_privileges" => {
@@ -92,7 +92,7 @@ locals {
       }
     },
 
-    # Tables in database: current + future
+    # Tables in database: current + future (RW)
     {
       for k, d in local.database_role_metadata :
       "${k}_rw_all_tables_in_database" => {
@@ -114,45 +114,6 @@ locals {
       }
     },
     {
-      for k, s in local.schema_metadata :
-      "${k}_ro_schema_usage" => {
-        account_role_name = local.database_role_metadata[s.database].ro_role_name
-        privileges        = ["USAGE"]
-
-        on_schema = {
-          schema_name = s.full_schema_name
-        }
-      }
-    },
-    {
-      for k, d in local.database_role_metadata :
-      "${k}_ro_future_tables_in_database" => {
-        account_role_name = d.ro_role_name
-        privileges        = ["SELECT"]
-
-        on_schema_object = {
-          future = {
-            object_type_plural = "TABLES"
-            in_database        = d.database
-          }
-        }
-      }
-    },
-    {
-      for k, d in local.database_role_metadata :
-      "${k}_ro_all_tables_in_database" => {
-        account_role_name = d.ro_role_name
-        privileges        = ["SELECT"]
-
-        on_schema_object = {
-          all = {
-            object_type_plural = "TABLES"
-            in_database        = d.database
-          }
-        }
-      }
-    },
-    {
       for k, d in local.database_role_metadata :
       "${k}_rw_future_tables_in_database" => {
         account_role_name = d.rw_role_name
@@ -164,6 +125,46 @@ locals {
           "TRUNCATE",
           "REFERENCES"
         ]
+        on_schema_object = {
+          future = {
+            object_type_plural = "TABLES"
+            in_database        = d.database
+          }
+        }
+      }
+    },
+
+    # Schema USAGE for RO roles
+    {
+      for k, s in local.schema_metadata :
+      "${k}_ro_schema_usage" => {
+        account_role_name = local.database_role_metadata[s.database].ro_role_name
+        privileges        = ["USAGE"]
+        on_schema = {
+          schema_name = s.full_schema_name
+        }
+      }
+    },
+
+    # Tables in database: current + future (RO)
+    {
+      for k, d in local.database_role_metadata :
+      "${k}_ro_all_tables_in_database" => {
+        account_role_name = d.ro_role_name
+        privileges        = ["SELECT"]
+        on_schema_object = {
+          all = {
+            object_type_plural = "TABLES"
+            in_database        = d.database
+          }
+        }
+      }
+    },
+    {
+      for k, d in local.database_role_metadata :
+      "${k}_ro_future_tables_in_database" => {
+        account_role_name = d.ro_role_name
+        privileges        = ["SELECT"]
         on_schema_object = {
           future = {
             object_type_plural = "TABLES"
