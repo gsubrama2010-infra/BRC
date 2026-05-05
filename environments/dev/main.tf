@@ -14,6 +14,8 @@ module "schemas" {
   source = "../../modules/schema"
 
   schemas = var.schemas
+
+  depends_on = [module.databases]
 }
 
 module "account_roles" {
