@@ -1,7 +1,7 @@
-name: "Terraform CI — DEV (DISABLED)"
+name: "Terraform CI/CD — DEV"
 
 on:
-  workflow_dispatch: # Manual trigger only — re-enable pull_request/push when ready
+  workflow_dispatch:
 
 # on:
 #   pull_request:
@@ -53,7 +53,7 @@ jobs:
       # ── Write Snowflake private key ──
       - name: Write Snowflake RSA key
         run: |
-          printf '%s\n' "${{ secrets.SNOWFLAKE_PRIVATE_KEY }}" > rsa_key.p8
+          printf '%s' "${{ secrets.SNOWFLAKE_PRIVATE_KEY }}" | sed 's/\\n/\n/g' > rsa_key.p8
           chmod 600 rsa_key.p8
           for dir in ../../modules/account_role ../../modules/database ../../modules/schema ../../modules/warehouse; do
             cp rsa_key.p8 "$dir/rsa_key.p8"
@@ -130,6 +130,57 @@ jobs:
           echo "  Validate: ${{ steps.validate.outcome }}"
           echo "  Plan:     ${{ steps.plan.outcome }}"
           exit 1
+
+      # ── Cleanup ──
+      - name: Cleanup key files
+        if: always()
+        run: |
+          rm -f rsa_key.p8
+          rm -f ../../modules/*/rsa_key.p8
+
+  terraform-apply:
+    name: "DEV — Apply (Manual Approval Required)"
+    needs: terraform-checks
+    runs-on: ubuntu-latest
+    environment: dev           # ← pause here until a reviewer approves in GitHub UI
+    defaults:
+      run:
+        working-directory: ${{ env.WORKING_DIR }}
+
+    steps:
+      # ── Checkout ──
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # ── Setup Terraform ──
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_version: ${{ env.TF_VERSION }}
+
+      # ── Configure AWS credentials for S3 backend ──
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: arn:aws:iam::524320491046:role/mfsg-github-actions-role
+          aws-region: us-east-1
+
+      # ── Write Snowflake private key ──
+      - name: Write Snowflake RSA key
+        run: |
+          printf '%s' "${{ secrets.SNOWFLAKE_PRIVATE_KEY }}" | sed 's/\\n/\n/g' > rsa_key.p8
+          chmod 600 rsa_key.p8
+          for dir in ../../modules/account_role ../../modules/database ../../modules/schema ../../modules/warehouse; do
+            cp rsa_key.p8 "$dir/rsa_key.p8"
+          done
+
+      # ── Init ──
+      - name: Terraform Init
+        run: terraform init
+
+      # ── Apply ──
+      - name: Terraform Apply
+        run: terraform apply -auto-approve -input=false
 
       # ── Cleanup ──
       - name: Cleanup key files
