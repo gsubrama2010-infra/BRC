@@ -1,7 +1,16 @@
-name: "Terraform CI — QA (DISABLED)"
+name: "Terraform CI/CD — QA"
 
 on:
-  workflow_dispatch: # Manual trigger only — re-enable pull_request/push when QA account is configured
+  workflow_dispatch:
+    inputs:
+      run_apply:
+        description: 'Apply changes after plan?'
+        required: true
+        default: 'no'
+        type: choice
+        options:
+          - 'no'
+          - 'yes'
 
 # on:
 #   pull_request:
@@ -33,46 +42,55 @@ jobs:
         working-directory: ${{ env.WORKING_DIR }}
 
     steps:
+      # ── Checkout ──
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      # ── Setup Terraform ──
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v3
         with:
           terraform_version: ${{ env.TF_VERSION }}
 
+      # ── Configure AWS credentials for S3 backend ──
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v4
         with:
           role-to-assume: arn:aws:iam::524320491046:role/mfsg-github-actions-role
           aws-region: us-east-1
 
+      # ── Write Snowflake private key ──
       - name: Write Snowflake RSA key
         run: |
-          printf '%s\n' "${{ secrets.SNOWFLAKE_QA_PRIVATE_KEY }}" > rsa_key.p8
+          printf '%s' "${{ secrets.SNOWFLAKE_QA_PRIVATE_KEY }}" | sed 's/\\n/\n/g' > rsa_key.p8
           chmod 600 rsa_key.p8
           for dir in ../../modules/account_role ../../modules/database ../../modules/schema ../../modules/warehouse; do
             cp rsa_key.p8 "$dir/rsa_key.p8"
           done
 
+      # ── Format Check ──
       - name: Terraform Format Check
         id: fmt
         run: terraform fmt -check -recursive
         continue-on-error: true
 
+      # ── Init ──
       - name: Terraform Init
         id: init
         run: terraform init
 
+      # ── Validate ──
       - name: Terraform Validate
         id: validate
         run: terraform validate -no-color
 
+      # ── Plan ──
       - name: Terraform Plan
         id: plan
         run: terraform plan -no-color -input=false
         continue-on-error: true
 
+      # ── Post PR Comment ──
       - name: Post Plan to PR
         if: github.event_name == 'pull_request'
         uses: actions/github-script@v7
@@ -87,7 +105,7 @@ jobs:
 
             const icon = (s) => s === 'success' ? '✅' : '❌';
 
-            const body = `### Terraform CI — QA Environment
+            const body = `### Terraform CI — QA
             | Check | Status |
             |-------|--------|
             | Format | ${icon(fmtOutcome)} \`${fmtOutcome}\` |
@@ -112,6 +130,7 @@ jobs:
               body: body
             });
 
+      # ── Fail if any check failed ──
       - name: Check results
         if: steps.fmt.outcome == 'failure' || steps.validate.outcome == 'failure' || steps.plan.outcome == 'failure'
         run: |
@@ -121,6 +140,58 @@ jobs:
           echo "  Plan:     ${{ steps.plan.outcome }}"
           exit 1
 
+      # ── Cleanup ──
+      - name: Cleanup key files
+        if: always()
+        run: |
+          rm -f rsa_key.p8
+          rm -f ../../modules/*/rsa_key.p8
+
+  terraform-apply:
+    name: "QA — Apply"
+    needs: terraform-checks
+    runs-on: ubuntu-latest
+    if: github.event.inputs.run_apply == 'yes'
+    defaults:
+      run:
+        working-directory: ${{ env.WORKING_DIR }}
+
+    steps:
+      # ── Checkout ──
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # ── Setup Terraform ──
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_version: ${{ env.TF_VERSION }}
+
+      # ── Configure AWS credentials for S3 backend ──
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: arn:aws:iam::524320491046:role/mfsg-github-actions-role
+          aws-region: us-east-1
+
+      # ── Write Snowflake private key ──
+      - name: Write Snowflake RSA key
+        run: |
+          printf '%s' "${{ secrets.SNOWFLAKE_QA_PRIVATE_KEY }}" | sed 's/\\n/\n/g' > rsa_key.p8
+          chmod 600 rsa_key.p8
+          for dir in ../../modules/account_role ../../modules/database ../../modules/schema ../../modules/warehouse; do
+            cp rsa_key.p8 "$dir/rsa_key.p8"
+          done
+
+      # ── Init ──
+      - name: Terraform Init
+        run: terraform init
+
+      # ── Apply ──
+      - name: Terraform Apply
+        run: terraform apply -auto-approve -input=false
+
+      # ── Cleanup ──
       - name: Cleanup key files
         if: always()
         run: |
