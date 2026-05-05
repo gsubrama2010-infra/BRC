@@ -7,6 +7,12 @@ terraform {
       version = "~> 2.14"
     }
   }
+
+  backend "s3" {
+    bucket = "dataeng-env-snowflake-data-2026032700000"
+    key    = "environments/dev/terraform.tfstate"
+    region = "us-east-1"
+  }
 }
 provider "snowflake" {
   organization_name        = "SPYPLHP"
