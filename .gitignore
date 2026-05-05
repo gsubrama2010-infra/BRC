@@ -6,6 +6,7 @@ tfplan*
 .terraform/
 .terraform.lock.hcl
 crash.log
+Terraform_Best*
 
 # Secrets — NEVER commit
 rsa_key.p8
