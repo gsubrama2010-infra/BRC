@@ -146,11 +146,6 @@ custom_account_roles = {
   }
 
   ########## Governance & Reporting (under MFSG_PLATFORM_ROLE) ##########
-  role_mfsg_data_governance = {
-    name             = "MFSG_DATA_GOVERNANCE_ROLE"
-    parent_role_name = "MFSG_PLATFORM_ROLE"
-    comment          = "Data governance oversight role"
-  }
   role_mfsg_dbt_readonly = {
     name             = "MFSG_DBT_READONLY"
     parent_role_name = "MFSG_PLATFORM_ROLE"
@@ -196,11 +191,6 @@ custom_account_roles = {
     name             = "MFSG_TERRAFORM_ADMIN"
     parent_role_name = "MFSG_SECURITY_ROLE"
     comment          = "Terraform admin service role (OIDC via CI/CD)"
-  }
-  role_mfsg_masking_admin = {
-    name             = "MFSG_MASKING_ADMIN_ROLE"
-    parent_role_name = "MFSG_SECURITY_ROLE"
-    comment          = "Masking policy administration role"
   }
   role_mfsg_pii_unmasked = {
     name             = "MFSG_PII_UNMASKED"
