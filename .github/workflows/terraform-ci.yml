@@ -2,6 +2,15 @@ name: "Terraform CI/CD — DEV"
 
 on:
   workflow_dispatch:
+    inputs:
+      run_apply:
+        description: 'Apply changes after plan?'
+        required: true
+        default: 'no'
+        type: choice
+        options:
+          - 'no'
+          - 'yes'
 
 # on:
 #   pull_request:
@@ -139,10 +148,10 @@ jobs:
           rm -f ../../modules/*/rsa_key.p8
 
   terraform-apply:
-    name: "DEV — Apply (Manual Approval Required)"
+    name: "DEV — Apply"
     needs: terraform-checks
     runs-on: ubuntu-latest
-    environment: dev           # ← pause here until a reviewer approves in GitHub UI
+    if: github.event.inputs.run_apply == 'yes'
     defaults:
       run:
         working-directory: ${{ env.WORKING_DIR }}
