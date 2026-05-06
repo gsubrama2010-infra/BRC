@@ -43,7 +43,7 @@ resource "snowflake_tag_association" "schemas" {
 resource "snowflake_tag_association" "roles" {
   for_each = local.all_account_roles
 
-  object_type        = "ACCOUNT ROLE"
+  object_type        = "ROLE"
   object_identifiers = [upper(each.value.name)]
   tag_id             = snowflake_tag.terraform_managed.fully_qualified_name
   tag_value          = "TRUE"
