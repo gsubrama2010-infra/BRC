@@ -89,6 +89,8 @@ jobs:
         id: plan
         run: terraform plan -no-color -input=false
         continue-on-error: true
+        env:
+          TF_VAR_snowflake_private_key_passphrase: ${{ secrets.SNOWFLAKE_QA_PRIVATE_KEY_PASSPHRASE }}
 
       # ── Post PR Comment ──
       - name: Post Plan to PR
@@ -190,6 +192,8 @@ jobs:
       # ── Apply ──
       - name: Terraform Apply
         run: terraform apply -auto-approve -input=false
+        env:
+          TF_VAR_snowflake_private_key_passphrase: ${{ secrets.SNOWFLAKE_QA_PRIVATE_KEY_PASSPHRASE }}
 
       # ── Cleanup ──
       - name: Cleanup key files
