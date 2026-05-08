@@ -37,6 +37,7 @@ jobs:
   terraform-checks:
     name: "QA — Format, Validate & Plan"
     runs-on: ubuntu-latest
+    environment: QA
     defaults:
       run:
         working-directory: ${{ env.WORKING_DIR }}
@@ -62,7 +63,7 @@ jobs:
       # ── Write Snowflake private key ──
       - name: Write Snowflake RSA key
         run: |
-          printf '%s' "${{ secrets.SNOWFLAKE_QA_PRIVATE_KEY }}" | sed 's/\\n/\n/g' > rsa_key.p8
+          printf '%s' "${{ secrets.SNOWFLAKE_PRIVATE_KEY }}" | sed 's/\\n/\n/g' > rsa_key.p8
           chmod 600 rsa_key.p8
           for dir in ../../modules/account_role ../../modules/database ../../modules/schema ../../modules/warehouse; do
             cp rsa_key.p8 "$dir/rsa_key.p8"
@@ -90,7 +91,7 @@ jobs:
         run: terraform plan -no-color -input=false
         continue-on-error: true
         env:
-          TF_VAR_snowflake_private_key_passphrase: ${{ secrets.SNOWFLAKE_QA_PRIVATE_KEY_PASSPHRASE }}
+          TF_VAR_snowflake_private_key_passphrase: ${{ secrets.SNOWFLAKE_PRIVATE_KEY_PASSPHRASE }}
 
       # ── Post PR Comment ──
       - name: Post Plan to PR
@@ -153,6 +154,7 @@ jobs:
     name: "QA — Apply"
     needs: terraform-checks
     runs-on: ubuntu-latest
+    environment: QA
     if: github.event.inputs.run_apply == 'yes'
     defaults:
       run:
@@ -179,7 +181,7 @@ jobs:
       # ── Write Snowflake private key ──
       - name: Write Snowflake RSA key
         run: |
-          printf '%s' "${{ secrets.SNOWFLAKE_QA_PRIVATE_KEY }}" | sed 's/\\n/\n/g' > rsa_key.p8
+          printf '%s' "${{ secrets.SNOWFLAKE_PRIVATE_KEY }}" | sed 's/\\n/\n/g' > rsa_key.p8
           chmod 600 rsa_key.p8
           for dir in ../../modules/account_role ../../modules/database ../../modules/schema ../../modules/warehouse; do
             cp rsa_key.p8 "$dir/rsa_key.p8"
@@ -193,7 +195,7 @@ jobs:
       - name: Terraform Apply
         run: terraform apply -auto-approve -input=false
         env:
-          TF_VAR_snowflake_private_key_passphrase: ${{ secrets.SNOWFLAKE_QA_PRIVATE_KEY_PASSPHRASE }}
+          TF_VAR_snowflake_private_key_passphrase: ${{ secrets.SNOWFLAKE_PRIVATE_KEY_PASSPHRASE }}
 
       # ── Cleanup ──
       - name: Cleanup key files

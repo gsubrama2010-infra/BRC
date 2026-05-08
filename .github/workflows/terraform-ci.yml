@@ -37,6 +37,7 @@ jobs:
   terraform-checks:
     name: "DEV — Format, Validate & Plan"
     runs-on: ubuntu-latest
+    environment: DEV
     defaults:
       run:
         working-directory: ${{ env.WORKING_DIR }}
@@ -151,6 +152,7 @@ jobs:
     name: "DEV — Apply"
     needs: terraform-checks
     runs-on: ubuntu-latest
+    environment: DEV
     if: github.event.inputs.run_apply == 'yes'
     defaults:
       run:
