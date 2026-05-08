@@ -63,7 +63,7 @@ jobs:
       # ── Write Snowflake private key ──
       - name: Write Snowflake RSA key
         run: |
-          printf '%s' "${{ secrets.SNOWFLAKE_PRIVATE_KEY }}" | sed 's/\\n/\n/g' > rsa_key.p8
+          printf '%s' "${{ secrets.RSA_KEY_SNOWFLAKE }}" | sed 's/\\n/\n/g' > rsa_key.p8
           chmod 600 rsa_key.p8
           for dir in ../../modules/account_role ../../modules/database ../../modules/schema ../../modules/warehouse; do
             cp rsa_key.p8 "$dir/rsa_key.p8"
@@ -181,7 +181,7 @@ jobs:
       # ── Write Snowflake private key ──
       - name: Write Snowflake RSA key
         run: |
-          printf '%s' "${{ secrets.SNOWFLAKE_PRIVATE_KEY }}" | sed 's/\\n/\n/g' > rsa_key.p8
+          printf '%s' "${{ secrets.RSA_KEY_SNOWFLAKE }}" | sed 's/\\n/\n/g' > rsa_key.p8
           chmod 600 rsa_key.p8
           for dir in ../../modules/account_role ../../modules/database ../../modules/schema ../../modules/warehouse; do
             cp rsa_key.p8 "$dir/rsa_key.p8"
