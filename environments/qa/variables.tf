@@ -1,3 +1,9 @@
+variable "snowflake_private_key_passphrase" {
+  description = "Passphrase for the encrypted Snowflake RSA private key"
+  type        = string
+  sensitive   = true
+}
+
 variable "warehouses" {
   type = map(object({
     name                                = string

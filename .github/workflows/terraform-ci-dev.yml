@@ -37,6 +37,7 @@ jobs:
   terraform-checks:
     name: "DEV — Format, Validate & Plan"
     runs-on: ubuntu-latest
+    environment: DEV
     defaults:
       run:
         working-directory: ${{ env.WORKING_DIR }}
@@ -56,13 +57,13 @@ jobs:
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v4
         with:
-          role-to-assume: arn:aws:iam::${{ vars.AWS_ACCOUNT_ID }}:role/mfsg-github-actions-role
+          role-to-assume: arn:aws:iam::${{ secrets.AWS_ACCOUNT_ID }}:role/mfsg-github-actions-role
           aws-region: us-east-1
 
       # ── Write Snowflake private key ──
       - name: Write Snowflake RSA key
         run: |
-          printf '%s' "${{ secrets.SNOWFLAKE_PRIVATE_KEY }}" | sed 's/\\n/\n/g' > rsa_key.p8
+          printf '%s' "${{ secrets.RSA_KEY_SNOWFLAKE }}" | sed 's/\\n/\n/g' > rsa_key.p8
           chmod 600 rsa_key.p8
           for dir in ../../modules/account_role ../../modules/database ../../modules/schema ../../modules/warehouse; do
             cp rsa_key.p8 "$dir/rsa_key.p8"
@@ -151,6 +152,7 @@ jobs:
     name: "DEV — Apply"
     needs: terraform-checks
     runs-on: ubuntu-latest
+    environment: DEV
     if: github.event.inputs.run_apply == 'yes'
     defaults:
       run:
@@ -171,13 +173,13 @@ jobs:
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v4
         with:
-          role-to-assume: arn:aws:iam::${{ vars.AWS_ACCOUNT_ID }}:role/mfsg-github-actions-role
+          role-to-assume: arn:aws:iam::${{ secrets.AWS_ACCOUNT_ID }}:role/mfsg-github-actions-role
           aws-region: us-east-1
 
       # ── Write Snowflake private key ──
       - name: Write Snowflake RSA key
         run: |
-          printf '%s' "${{ secrets.SNOWFLAKE_PRIVATE_KEY }}" | sed 's/\\n/\n/g' > rsa_key.p8
+          printf '%s' "${{ secrets.RSA_KEY_SNOWFLAKE }}" | sed 's/\\n/\n/g' > rsa_key.p8
           chmod 600 rsa_key.p8
           for dir in ../../modules/account_role ../../modules/database ../../modules/schema ../../modules/warehouse; do
             cp rsa_key.p8 "$dir/rsa_key.p8"
