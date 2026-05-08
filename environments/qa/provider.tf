@@ -9,19 +9,17 @@ terraform {
   }
 
   backend "s3" {
-    bucket = "dataeng-env-snowflake-data-2026032700000"
-    key    = "environments/qa/terraform.tfstate"
-    region = "us-east-1"
+    key = "environments/qa/terraform.tfstate"
   }
 }
 
 provider "snowflake" {
-  organization_name          = "SPYPLHP"                 # TODO: Update if QA uses a different org
-  account_name               = "REPLACE_WITH_QA_ACCOUNT" # TODO: Replace with QA account name
-  user                       = "SVC_TERRAFORM"
+  organization_name          = var.snowflake_org_name
+  account_name               = var.snowflake_account_name
+  user                       = var.snowflake_user
   private_key                = file("rsa_key.p8")
   private_key_passphrase     = var.snowflake_private_key_passphrase
   authenticator              = "SNOWFLAKE_JWT"
-  role                       = "ACCOUNTADMIN"
+  role                       = var.snowflake_role
   preview_features_enabled   = ["snowflake_table_resource"]
 }

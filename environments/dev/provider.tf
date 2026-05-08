@@ -9,17 +9,16 @@ terraform {
   }
 
   backend "s3" {
-    bucket = "dataeng-env-snowflake-data-2026032700000"
-    key    = "environments/dev/terraform.tfstate"
-    region = "us-east-1"
+    key = "environments/dev/terraform.tfstate"
   }
 }
+
 provider "snowflake" {
-  organization_name        = "SPYPLHP"
-  account_name             = "VU59987"
-  user                     = "GSUBRAMA"
+  organization_name        = var.snowflake_org_name
+  account_name             = var.snowflake_account_name
+  user                     = var.snowflake_user
   private_key              = file("rsa_key.p8")
   authenticator            = "SNOWFLAKE_JWT"
-  role                     = "ACCOUNTADMIN"
+  role                     = var.snowflake_role
   preview_features_enabled = ["snowflake_table_resource"]
 }
