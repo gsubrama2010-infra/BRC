@@ -256,11 +256,11 @@ custom_account_roles = {
   }
 
   ########## Terraform Role ##########
-  account_role_mfsg_terraform_admin = {
-    name             = "MFSG_TERRAFORM_ADMIN"
-    parent_role_name = "SYSADMIN"
-    comment          = "Terraform admin service role"
-  }
+  # account_role_mfsg_terraform_admin = {
+  #   name             = "MFSG_TERRAFORM_ADMIN"
+  #   parent_role_name = "SYSADMIN"
+  #   comment          = "Terraform admin service role"
+  # }
 
   ########## PII Role ##########
   account_role_mask_pii_standard = {
