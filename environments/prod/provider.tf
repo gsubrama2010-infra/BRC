@@ -14,12 +14,12 @@ terraform {
 }
 
 provider "snowflake" {
-  organization_name          = var.snowflake_org_name
-  account_name               = var.snowflake_account_name
-  user                       = var.snowflake_user
-  private_key                = file("rsa_key.p8")
-  private_key_passphrase     = var.snowflake_private_key_passphrase
-  authenticator              = "SNOWFLAKE_JWT"
-  role                       = var.snowflake_role
-  preview_features_enabled   = ["snowflake_table_resource"]
+  organization_name        = var.snowflake_org_name
+  account_name             = var.snowflake_account_name
+  user                     = var.snowflake_user
+  private_key              = file("rsa_key.p8")
+  private_key_passphrase   = var.snowflake_private_key_passphrase
+  authenticator            = "SNOWFLAKE_JWT"
+  role                     = var.snowflake_role
+  preview_features_enabled = ["snowflake_table_resource"]
 }
