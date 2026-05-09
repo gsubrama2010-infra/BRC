@@ -30,6 +30,7 @@ variable "snowflake_private_key_passphrase" {
 variable "snowflake_warehouse" {
   description = "Default warehouse for the Snowflake provider session"
   type        = string
+  default     = null
 }
 
 variable "warehouses" {
