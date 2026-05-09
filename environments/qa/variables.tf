@@ -27,6 +27,11 @@ variable "snowflake_private_key_passphrase" {
   sensitive   = true
 }
 
+variable "snowflake_warehouse" {
+  description = "Default warehouse for the Snowflake provider session"
+  type        = string
+}
+
 variable "warehouses" {
   type = map(object({
     name                                = string

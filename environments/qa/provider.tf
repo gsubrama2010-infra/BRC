@@ -21,5 +21,6 @@ provider "snowflake" {
   private_key_passphrase   = var.snowflake_private_key_passphrase
   authenticator            = "SNOWFLAKE_JWT"
   role                     = var.snowflake_role
+  warehouse                = var.snowflake_warehouse
   preview_features_enabled = ["snowflake_table_resource"]
 }

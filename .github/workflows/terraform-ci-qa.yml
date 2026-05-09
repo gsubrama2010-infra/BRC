@@ -99,6 +99,7 @@ jobs:
           TF_VAR_snowflake_user: ${{ secrets.SNOWFLAKE_USER }}
           TF_VAR_snowflake_role: ${{ secrets.SNOWFLAKE_ROLE }}
           TF_VAR_snowflake_private_key_passphrase: ${{ secrets.SNOWFLAKE_PRIVATE_KEY_PASSPHRASE }}
+          TF_VAR_snowflake_warehouse: ${{ secrets.SNOWFLAKE_WAREHOUSE }}
 
       # ── Post PR Comment ──
       - name: Post Plan to PR
@@ -210,6 +211,7 @@ jobs:
           TF_VAR_snowflake_user: ${{ secrets.SNOWFLAKE_USER }}
           TF_VAR_snowflake_role: ${{ secrets.SNOWFLAKE_ROLE }}
           TF_VAR_snowflake_private_key_passphrase: ${{ secrets.SNOWFLAKE_PRIVATE_KEY_PASSPHRASE }}
+          TF_VAR_snowflake_warehouse: ${{ secrets.SNOWFLAKE_WAREHOUSE }}
 
       # ── Cleanup ──
       - name: Cleanup key files
