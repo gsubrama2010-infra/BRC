@@ -9,7 +9,7 @@ terraform {
   }
 
   backend "s3" {
-    key = "environments/qa/terraform.tfstate"
+    key = "environments/qa/terraform/terraform.tfstate"
   }
 }
 

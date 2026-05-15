@@ -187,11 +187,14 @@ custom_account_roles = {
   }
 
   ########## Security Roles (under MFSG_SECURITY_ROLE → SECURITYADMIN) ##########
-  role_mfsg_terraform_admin = {
-    name             = "MFSG_TERRAFORM_ADMIN"
-    parent_role_name = "MFSG_SECURITY_ROLE"
-    comment          = "Terraform admin service role (OIDC via CI/CD)"
-  }
+  ### This role is created by MFSG Admins manually.  This is being uncommented out as it's created already. 
+  ### Ganesh Subramaniam - May 08 2026
+  #  role_mfsg_terraform_admin = {
+  #    name             = "MFSG_TERRAFORM_ADMIN"
+  #    parent_role_name = "MFSG_SECURITY_ROLE"
+  #    comment          = "Terraform admin service role (OIDC via CI/CD)"
+  #  }
+
   role_mfsg_pii_unmasked = {
     name             = "MFSG_PII_UNMASKED"
     parent_role_name = "MFSG_SECURITY_ROLE"

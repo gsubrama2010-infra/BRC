@@ -179,5 +179,3 @@ jobs:
         run: |
           rm -f rsa_key.p8
           rm -f ../../modules/*/rsa_key.p8
-
-          #Test Ganesh
