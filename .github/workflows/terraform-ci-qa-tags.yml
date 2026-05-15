@@ -46,7 +46,7 @@ jobs:
         uses: aws-actions/configure-aws-credentials@v4
         with:
           role-to-assume: arn:aws:iam::${{ secrets.AWS_ACCOUNT_ID }}:role/${{ secrets.AWS_IAM_ROLE_NAME }}
-          aws-region: ${{ secrets.AWS_REGION }}
+          aws-region: ${{ vars.AWS_REGION }}
 
       # ── Write Snowflake private key ──
       - name: Write Snowflake RSA key
@@ -68,8 +68,8 @@ jobs:
         id: init
         run: |
           terraform init \
-            -backend-config="bucket=${{ secrets.TF_STATE_BUCKET }}" \
-            -backend-config="region=${{ secrets.AWS_REGION }}"
+            -backend-config="bucket=${{ vars.TF_STATE_BUCKET }}" \
+            -backend-config="region=${{ vars.AWS_REGION }}"
 
       # ── Validate ──
       - name: Terraform Validate
@@ -88,12 +88,12 @@ jobs:
             -target=snowflake_tag_association.roles
         continue-on-error: true
         env:
-          TF_VAR_snowflake_org_name: ${{ secrets.SNOWFLAKE_ORG_NAME }}
-          TF_VAR_snowflake_account_name: ${{ secrets.SNOWFLAKE_ACCOUNT }}
-          TF_VAR_snowflake_user: ${{ secrets.SNOWFLAKE_USER }}
-          TF_VAR_snowflake_role: ${{ secrets.SNOWFLAKE_ROLE }}
+          TF_VAR_snowflake_org_name: ${{ vars.SNOWFLAKE_ORG_NAME }}
+          TF_VAR_snowflake_account_name: ${{ vars.SNOWFLAKE_ACCOUNT }}
+          TF_VAR_snowflake_user: ${{ vars.SNOWFLAKE_USER }}
+          TF_VAR_snowflake_role: ${{ vars.SNOWFLAKE_ROLE }}
           TF_VAR_snowflake_private_key_passphrase: ${{ secrets.SNOWFLAKE_PRIVATE_KEY_PASSPHRASE }}
-          TF_VAR_snowflake_warehouse: ${{ secrets.SNOWFLAKE_WAREHOUSE }}
+          TF_VAR_snowflake_warehouse: ${{ vars.SNOWFLAKE_WAREHOUSE }}
 
       # ── Fail if any check failed ──
       - name: Check results
@@ -138,7 +138,7 @@ jobs:
         uses: aws-actions/configure-aws-credentials@v4
         with:
           role-to-assume: arn:aws:iam::${{ secrets.AWS_ACCOUNT_ID }}:role/${{ secrets.AWS_IAM_ROLE_NAME }}
-          aws-region: ${{ secrets.AWS_REGION }}
+          aws-region: ${{ vars.AWS_REGION }}
 
       # ── Write Snowflake private key ──
       - name: Write Snowflake RSA key
@@ -153,8 +153,8 @@ jobs:
       - name: Terraform Init
         run: |
           terraform init \
-            -backend-config="bucket=${{ secrets.TF_STATE_BUCKET }}" \
-            -backend-config="region=${{ secrets.AWS_REGION }}"
+            -backend-config="bucket=${{ vars.TF_STATE_BUCKET }}" \
+            -backend-config="region=${{ vars.AWS_REGION }}"
 
       # ── Apply ──
       - name: Terraform Apply
@@ -166,12 +166,12 @@ jobs:
             -target=snowflake_tag_association.schemas \
             -target=snowflake_tag_association.roles
         env:
-          TF_VAR_snowflake_org_name: ${{ secrets.SNOWFLAKE_ORG_NAME }}
-          TF_VAR_snowflake_account_name: ${{ secrets.SNOWFLAKE_ACCOUNT }}
-          TF_VAR_snowflake_user: ${{ secrets.SNOWFLAKE_USER }}
-          TF_VAR_snowflake_role: ${{ secrets.SNOWFLAKE_ROLE }}
+          TF_VAR_snowflake_org_name: ${{ vars.SNOWFLAKE_ORG_NAME }}
+          TF_VAR_snowflake_account_name: ${{ vars.SNOWFLAKE_ACCOUNT }}
+          TF_VAR_snowflake_user: ${{ vars.SNOWFLAKE_USER }}
+          TF_VAR_snowflake_role: ${{ vars.SNOWFLAKE_ROLE }}
           TF_VAR_snowflake_private_key_passphrase: ${{ secrets.SNOWFLAKE_PRIVATE_KEY_PASSPHRASE }}
-          TF_VAR_snowflake_warehouse: ${{ secrets.SNOWFLAKE_WAREHOUSE }}
+          TF_VAR_snowflake_warehouse: ${{ vars.SNOWFLAKE_WAREHOUSE }}
 
       # ── Cleanup ──
       - name: Cleanup key files
